@@ -6,11 +6,11 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:12:03 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/09 15:44:50 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/09 18:38:21 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libprintf.h"
 
 int		ft_m_count(const char *format)
 {

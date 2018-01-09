@@ -6,12 +6,11 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/09 16:58:32 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/09 18:39:11 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft/libft.h"
+#include "libprintf.h"
 
 static int	ft_print_str(const char *format, int *index)
 {
