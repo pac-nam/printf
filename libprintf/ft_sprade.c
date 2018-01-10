@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_sprade.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/04 14:32:23 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/10 12:28:04 by tbleuse          ###   ########.fr       */
+/*   Created: 2018/01/10 12:28:11 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/10 12:57:49 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include "../libft/libft.h"
+int		(char *format,int *index, va_list ap)
+{
+	int		count;
 
-int			ft_printf(const char *str, ...);
-int			ft_sprade(char *format, va_list ap);
-
-#endif
+	count = 0;
+	
+	return (count);
+}
