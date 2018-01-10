@@ -6,11 +6,12 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/10 12:50:21 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/10 16:33:06 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
+#include "function_array.h"
 
 static int	ft_print_str(const char *format, int *index)
 {
@@ -34,7 +35,7 @@ int 		ft_printf(const char *format, ...)
 	{
 		if (format[index] == '%')
 		{
-			count += ft_sprade(format, &index, va)
+			count += (ft_printf_tab[ft_last_char(format)])(format, &index, va)
 		}
 		else
 		{
