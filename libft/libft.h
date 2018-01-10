@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 13:54:05 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/05 11:12:16 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/10 10:27:16 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 #  define STRING_H
 #  include <string.h>
 # endif
+
+# define BUFF_SIZE 100
 
 typedef struct		s_list
 {
@@ -103,5 +105,6 @@ void				ft_lstpushfront(t_list **begin_list,
 							void *data, size_t size);
 void				ft_lstpushback(t_list **begin_list,
 							void *data, size_t size);
+int					ft_gnl(const int fd, char **line);
 
 #endif
