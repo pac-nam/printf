@@ -23,28 +23,53 @@ static int	ft_print_str(const char *format, int *index)
 	return (i);
 }
 
+static int      ft_length(char *format)
+{
+        int                     i;
+
+        i = 0;
+        while (format[i] != 's' && format[i] != '.' && (!ft_isdigit(format[i])))
+                i++;
+        if (ft_isdigit(format[i]))
+                return (ft_atoi(&format[i]));
+        return (0);
+}
+
+static int      ft_precision(char *format)
+{
+        int                     i;
+
+        i = 0;
+        while (format[i] != 's' && format[i] != '.')
+                i++;
+        if (format[i] == '.')
+                return (ft_atoi(&format[i + 1]));
+        return (-1);
+}
+
 int 		ft_printf(const char *format, ...)
 {
-	int			index;
+	int			i;
 	int			count;
 	char		*str;
 	va_list		ap;
 
-	index = 0;
+	i = 0;
 	count = 0;
 	str = ft_strdup(format);
 	va_start(ap, format);
-	while (str[index])
+	while (str[i])
 	{
-		if (str[index] == '%')
+		if (str[i] == '%')
 		{
-			count += (ft_printf_tab[(int)str[index +
-					ft_last_char(&str[index])]])(&str[index], ap);
-			index = index + ft_last_char(&str[index]) + 1;
+			count += (ft_printf_tab[(int)str[i + ft_last_char
+			(&str[i])]])(&str[i], ap, ft_length(&str[i]),
+			ft_precision(&str[i]));
+			i = i + ft_last_char(&str[i]) + 1;
 		}
 		else
 		{
-			count += ft_print_str(str, &index);
+			count += ft_print_str(str, &i);
 		}
 	}
 	ft_strdel(&str);

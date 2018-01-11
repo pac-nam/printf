@@ -14,7 +14,7 @@
 # define FUNCTION_ARRAY_H
 # include "libprintf.h"
 
-int (*ft_printf_tab[128])(char *str, va_list ap) =
+int (*ft_printf_tab[128])(char *str, va_list ap, int length, int precision) =
 {NULL,
 NULL,
 NULL,

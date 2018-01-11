@@ -12,9 +12,11 @@
 
 #include "header/libprintf.h"
 
-int         ft_printf_mu(char *format, va_list ap)
+int         ft_printf_mu(char *format, va_list ap, int length, int precision)
 {
 	format = NULL;
 	ap = NULL;
+        length = 0;
+        precision = 0;
 	return (0);
 }
