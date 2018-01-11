@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/04 14:32:23 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/10 12:28:04 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/08 15:11:32 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/11 14:01:19 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include "../libft/libft.h"
+#include "header/libft.h"
 
-int			ft_printf(const char *str, ...);
-int			ft_sprade(char *format, va_list ap);
-
-#endif
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}

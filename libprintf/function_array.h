@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 15:37:18 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/10 16:51:12 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/11 16:34:47 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,16 +98,16 @@ NULL,
 NULL,
 NULL,
 NULL,
-ft_printf_A,
+ft_printf_ma,
 NULL,
-ft_printf_C,
-ft_printf_D,
-ft_printf_E,
+ft_printf_mc,
+ft_printf_md,
+ft_printf_me,
 /*
 **ft_70 under
 */
-ft_printf_F,
-ft_printf_G,
+ft_printf_mf,
+ft_printf_mg,
 NULL,
 NULL,
 NULL,
@@ -115,19 +115,19 @@ NULL,
 NULL,
 NULL,
 NULL,
-ft_printf_O,
+ft_printf_mo,
 /*
 **ft_80 under
 */
 NULL,
 NULL,
 NULL,
-ft_printf_S,
+ft_printf_ms,
 NULL,
-ft_printf_U,
+ft_printf_mu,
 NULL,
 NULL,
-ft_printf_X,
+ft_printf_mx,
 NULL,
 /*
 **ft_90 under
@@ -178,6 +178,6 @@ NULL,
 NULL,
 NULL,
 NULL,
-NULL,
+NULL};
 
 #endif

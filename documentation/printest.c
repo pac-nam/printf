@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 16:56:34 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/10 18:00:55 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/11 17:54:55 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 int		main(void)
 {
-	printf("start|%30.20s|end", "penser a ecrire quelque chose.");
+	char		something;
+
+	something = 83;
+	printf("start|%hhd|end", something);
 	return (0);
 }

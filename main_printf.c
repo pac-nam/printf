@@ -6,17 +6,18 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/09 15:24:31 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/11 17:54:50 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "libprintf/header/libprintf.h"
+#include <stdio.h>
 
 int			main(void)
 {
-	int			i;
-
-	i = 42;
-	ft_printf("%d", i);
+	ft_printf("printf :\n");
+	printf("start|%10.8s|end\n", "01235644456789");
+	ft_printf("ft_printf :\n");
+	ft_printf("start|%10.8s|end\n", "01235644456789");
 	return (0);
 }
