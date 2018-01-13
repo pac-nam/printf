@@ -6,13 +6,13 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 13:37:11 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/12 17:54:36 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/13 13:45:27 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/libprintf.h"
 
-static int		ft_printf_infos_z_len_pre(t_printf **infos, char *str, int max)
+static int		ft_printf_infos_z_len_pre(int **infos, char *str, int max)
 {
 	int			i;
 
@@ -21,20 +21,20 @@ static int		ft_printf_infos_z_len_pre(t_printf **infos, char *str, int max)
 			str[i] != 'l' && str[i] != 'j' && str[i] != 'z' && i < max)
 		i++;
 	if (str[i] == '0')
-		(*infos)->zero = 0;
+		*infos[1] = 1;
 	i = 0;
 	while ((str[i] <= '1' || str[i] >= '9') && str[i] != '.' &&
 			str[i] != 'h' && str[i] != 'l' && str[i] != 'j' &&
 			str[i] != 'z' && i < max)
 		i++;
 	if (ft_isdigit(str[i]))
-		(*infos)->length = ft_atoi(&str[i]);
+		*infos[5] = ft_atoi(&str[i]);
 	i = 0;
 	while (str[i] != '.' && str[i] != 'h' && str[i] != 'l' &&
 			str[i] != 'j' && str[i] != 'z' && i < max)
 		i++;
 	if (str[i] == '.')
-		(*infos)->precision = (ft_atoi(&str[i + 1]));
+		*infos[6] = (ft_atoi(&str[i + 1]));
 	return (1);
 }
 
@@ -117,29 +117,22 @@ static int		ft_printf_type(char c)
 	return (ft_printf_second_type(c));
 }
 
-int				ft_take_info(char *format, t_printf **infos)
+void			ft_take_info(char *format, int **infos)
 {
+	int				i;
 	int				max;
 
-	if (*infos != NULL)
-		free(infos);
-	if (!(*infos = (t_printf*)malloc(sizeof(t_printf*))))
-		return (0);
+	i = 0;
 	max = ft_last_char_index(format);
-	(*infos)->hash = 0;
-	(*infos)->zero = 0;
-	(*infos)->minus = 0;
-	(*infos)->plus = 0;
-	(*infos)->length = -1;
-	(*infos)->precision = -1;
-	(*infos)->size = ft_printf_size(format, max);
+	while (i < 8)
+		*infos[i] = -1;
 	if (ft_strnstr(format, "#", max))
-		(*infos)->hash = 1;
+		*infos[0] = 1;
 	if (ft_strnstr(format, "-", max))
-		(*infos)->minus = 1;
+		*infos[2] = 1;
 	if (ft_strnstr(format, "+", max))
-		(*infos)->plus = 1;
+		*infos[3] = 1;
 	ft_printf_infos_z_len_pre(infos, format, max);
-	(*infos)->type = ft_printf_type(format[max]);
-	return (1);
+	*infos[7] = ft_printf_size(format, max);
+	*infos[8] = ft_printf_type(format[max]);
 }

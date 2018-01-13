@@ -6,30 +6,43 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 16:48:06 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/12 17:55:59 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/13 13:56:39 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 
-int	ft_printf_s(va_list ap, t_printf *infos)
+static int	ft_printf_s_space(int nb)
 {
 	char		*str;
 
+	if (nb <= 0 || (!(str = (char*)malloc(nb + 1))))
+		return (0);
+	str[nb] = '\0';
+	nb = 0;
+	while (str[nb])
+		str[nb] = ' ';
+	write(1, str, nb);
+	return (nb);
+}
+
+int			ft_printf_s(va_list ap, int *info)
+{
+	char		*str;
+	int			i;
+
+	if (info[6] == -1)
+		info[6] = ft_strlen(str);
 	str = va_arg(ap, char*);
-	if (infos->precision == -1)
-		infos->precision = ft_strlen(str);
-	if (infos->minus)
+	if (info[2] != -1)
 	{
-		write(1, str, infos->precision);
-		while (infos->precision < infos->length--)
-			ft_putchar (' ');
+		write(1, str, info[6]);
+		i = ft_printf_s_space(info[6] - info[5])
 	}
 	else
 	{
-		while (infos->precision < infos->length--)
-			ft_putchar (' ');
-		write(1, str, infos->precision);
+		i = ft_printf_s_space(info[6] - info[5])
+		write(1, str, info[6]);
 	}
-	return ((int)ft_strlen(str) + infos->precision);
+	return (info[6] + i);
 }

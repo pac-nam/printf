@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/12 17:50:31 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/13 13:18:12 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,26 +23,31 @@ static int	ft_print_str(const char *format, int *index)
 	return (i);
 }
 
+/*
+**0|1|2|3|4|   5  |    6    |  7 |  8 |
+**#|0|-|+| |length|precision|size|type|
+*/
+
 int 		ft_printf(const char *format, ...)
 {
 	int			i;
 	int			count;
+	int			*infos;
 	char		*str;
-	t_printf	*infos;
 	va_list		ap;
 
 	i = 0;
 	count = 0;
+	if (!(infos = (int*)malloc(sizeof(int) * 9)))
+		return (0);
 	str = ft_strdup(format);
-	infos = NULL;
 	va_start(ap, format);
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			if (!ft_take_infos(&str[i], &infos))
-				return (0);
-			count += (ft_printf_tab[infos->type])(ap, infos);
+			ft_take_infos(&str[i], &infos);
+			count += (ft_printf_tab[infos[8]])(ap, infos);
 			i = i + ft_last_char_index(&str[i]) + 1;
 		}
 		else
