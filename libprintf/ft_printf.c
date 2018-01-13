@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 13:18:12 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/13 17:04:52 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int 		ft_printf(const char *format, ...)
 {
 	int			i;
 	int			count;
-	int			*infos;
+	int			*info;
 	char		*str;
 	va_list		ap;
 
 	i = 0;
 	count = 0;
-	if (!(infos = (int*)malloc(sizeof(int) * 9)))
+	if (!(info = (int*)malloc(sizeof(int) * 9)))
 		return (0);
 	str = ft_strdup(format);
 	va_start(ap, format);
@@ -46,8 +46,8 @@ int 		ft_printf(const char *format, ...)
 	{
 		if (str[i] == '%')
 		{
-			ft_take_infos(&str[i], &infos);
-			count += (ft_printf_tab[infos[8]])(ap, infos);
+			ft_take_infos(&str[i], &info);
+			count += (ft_printf_tab[info[8]])(ap, info);
 			i = i + ft_last_char_index(&str[i]) + 1;
 		}
 		else
@@ -55,7 +55,7 @@ int 		ft_printf(const char *format, ...)
 			count += ft_print_str(str, &i);
 		}
 	}
-	ft_memdel((void**)&infos);
+	ft_memdel((void**)&info);
 	ft_strdel(&str);
 	va_end(ap);
 	return (count);

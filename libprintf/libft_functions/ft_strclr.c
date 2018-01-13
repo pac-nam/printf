@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 15:18:27 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/09 13:24:23 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/13 16:04:45 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf/header/libprintf.h"
-#include <stdio.h>
+#include "../header/libft.h"
 
-int			main(void)
+void		ft_strclr(char *s)
 {
-	ft_printf("printf :\n");
-	printf("start|%10.8s|end\n", "01235644456789");
-	ft_printf("ft_printf :\n");
-	ft_printf("start|%10.8s|end\n", "01235644456789");
-	return (0);
+	int		i;
+
+	i = 0;
+	if (s == NULL)
+		return ;
+	while (s[i] != '\0')
+	{
+		s[i] = 0;
+		i++;
+	}
 }

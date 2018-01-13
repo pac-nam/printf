@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 15:18:27 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/29 14:47:19 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/13 16:04:18 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf/header/libprintf.h"
-#include <stdio.h>
+#include "../header/libft.h"
 
-int			main(void)
+void		*ft_realloc(void *ptr, size_t size)
 {
-	ft_printf("printf :\n");
-	printf("start|%10.8s|end\n", "01235644456789");
-	ft_printf("ft_printf :\n");
-	ft_printf("start|%10.8s|end\n", "01235644456789");
-	return (0);
+	void	*ptr2;
+
+	if (!(ptr2 = malloc(size)))
+		return (NULL);
+	ptr2 = ft_memcpy(ptr2, ptr, ft_strlen((char*)ptr));
+	ft_memdel(&ptr);
+	return (ptr2);
 }

@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 15:18:27 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/09 10:41:46 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/13 16:03:35 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf/header/libprintf.h"
-#include <stdio.h>
+#include "../header/libft.h"
 
-int			main(void)
+void		*ft_memset(void *b, int c, size_t len)
 {
-	ft_printf("printf :\n");
-	printf("start|%10.8s|end\n", "01235644456789");
-	ft_printf("ft_printf :\n");
-	ft_printf("start|%10.8s|end\n", "01235644456789");
-	return (0);
+	unsigned char	*b2;
+	size_t			i;
+
+	b2 = b;
+	i = 0;
+	while (i < len)
+	{
+		b2[i] = (unsigned char)c;
+		i++;
+	}
+	return (b);
 }

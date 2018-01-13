@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 15:18:27 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/08 16:36:24 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/13 16:09:18 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf/header/libprintf.h"
-#include <stdio.h>
+#include "../header/libft.h"
 
-int			main(void)
+char	*ft_strrchr(const char *s, int c)
 {
-	ft_printf("printf :\n");
-	printf("start|%10.8s|end\n", "01235644456789");
-	ft_printf("ft_printf :\n");
-	ft_printf("start|%10.8s|end\n", "01235644456789");
-	return (0);
+	int		i;
+
+	i = ft_strlen((char *)s);
+	while (i > 0 && s[i] != (char)c)
+		i--;
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
+	return (NULL);
 }

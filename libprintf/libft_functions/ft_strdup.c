@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 15:18:27 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/08 11:49:49 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/13 16:05:56 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf/header/libprintf.h"
-#include <stdio.h>
+#include "../header/libft.h"
 
-int			main(void)
+char	*ft_strdup(const char *s1)
 {
-	ft_printf("printf :\n");
-	printf("start|%10.8s|end\n", "01235644456789");
-	ft_printf("ft_printf :\n");
-	ft_printf("start|%10.8s|end\n", "01235644456789");
-	return (0);
+	int		x;
+	int		lenght;
+	char	*str;
+
+	x = 0;
+	lenght = 0;
+	while (s1[lenght] != '\0')
+		lenght++;
+	str = (char*)malloc((sizeof(char)) * lenght + 1);
+	if (str == NULL)
+		return (NULL);
+	while (x < lenght)
+	{
+		str[x] = s1[x];
+		x++;
+	}
+	str[x] = '\0';
+	return (str);
 }

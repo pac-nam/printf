@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 15:18:27 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/11 11:32:33 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/13 16:02:39 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf/header/libprintf.h"
-#include <stdio.h>
+#include "../header/libft.h"
 
-int			main(void)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	ft_printf("printf :\n");
-	printf("start|%10.8s|end\n", "01235644456789");
-	ft_printf("ft_printf :\n");
-	ft_printf("start|%10.8s|end\n", "01235644456789");
-	return (0);
+	size_t					i;
+	const unsigned char		*tmp;
+	unsigned char			*tmp2;
+
+	i = 0;
+	tmp = src;
+	tmp2 = dst;
+	while (i < n && tmp[i] != (unsigned char)c)
+	{
+		tmp2[i] = tmp[i];
+		i++;
+	}
+	if (i < n && tmp[i] == (unsigned char)c)
+	{
+		tmp2[i] = tmp[i];
+		return (&dst[i + 1]);
+	}
+	return (NULL);
 }

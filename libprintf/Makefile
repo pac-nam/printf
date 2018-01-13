@@ -6,7 +6,7 @@
 #    By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 10:34:52 by tbleuse           #+#    #+#              #
-#    Updated: 2018/01/12 17:44:20 by tbleuse          ###   ########.fr        #
+#    Updated: 2018/01/13 18:01:15 by tbleuse          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,56 +18,58 @@ POINT_C = ft_printf.c\
 		  ft_m_count.c\
 		  ft_last_char.c\
 		  ft_take_infos.c\
+	printf_functions/ft_printf_error.c\
 	printf_functions/ft_printf_s.c\
-ft_atoi.c\
-ft_bzero.c\
-ft_isalnum.c\
-ft_isalpha.c\
-ft_isascii.c\
-ft_isdigit.c\
-ft_isprint.c\
-ft_itoa.c\
-ft_memalloc.c\
-ft_memccpy.c\
-ft_memchr.c\
-ft_memcmp.c\
-ft_memcpy.c\
-ft_memdel.c\
-ft_memmove.c\
-ft_memset.c\
-ft_realloc.c\
-ft_putchar.c\
-ft_putendl.c\
-ft_putnbr.c\
-ft_putstr.c\
-ft_strcat.c\
-ft_strchr.c\
-ft_strclr.c\
-ft_strcmp.c\
-ft_strcpy.c\
-ft_strdel.c\
-ft_strdup.c\
-ft_strequ.c\
-ft_striter.c\
-ft_striteri.c\
-ft_strjoin.c\
-ft_strlcat.c\
-ft_strlen.c\
-ft_strlen_c.c\
-ft_strmap.c\
-ft_strmapi.c\
-ft_strncat.c\
-ft_strncmp.c\
-ft_strncpy.c\
-ft_strnequ.c\
-ft_strnew.c\
-ft_strnstr.c\
-ft_strrchr.c\
-ft_strsplit.c\
-ft_strstr.c\
-ft_strsub.c\
-ft_strtrim.c\
-ft_swap.c\
+	printf_functions/ft_printf_di.c\
+libft_functions/ft_atoi.c\
+libft_functions/ft_bzero.c\
+libft_functions/ft_isalnum.c\
+libft_functions/ft_isalpha.c\
+libft_functions/ft_isascii.c\
+libft_functions/ft_isdigit.c\
+libft_functions/ft_isprint.c\
+libft_functions/ft_itoa.c\
+libft_functions/ft_memalloc.c\
+libft_functions/ft_memccpy.c\
+libft_functions/ft_memchr.c\
+libft_functions/ft_memcmp.c\
+libft_functions/ft_memcpy.c\
+libft_functions/ft_memdel.c\
+libft_functions/ft_memmove.c\
+libft_functions/ft_memset.c\
+libft_functions/ft_realloc.c\
+libft_functions/ft_putchar.c\
+libft_functions/ft_putendl.c\
+libft_functions/ft_putnbr.c\
+libft_functions/ft_putstr.c\
+libft_functions/ft_strcat.c\
+libft_functions/ft_strchr.c\
+libft_functions/ft_strclr.c\
+libft_functions/ft_strcmp.c\
+libft_functions/ft_strcpy.c\
+libft_functions/ft_strdel.c\
+libft_functions/ft_strdup.c\
+libft_functions/ft_strequ.c\
+libft_functions/ft_striter.c\
+libft_functions/ft_striteri.c\
+libft_functions/ft_strjoin.c\
+libft_functions/ft_strlcat.c\
+libft_functions/ft_strlen.c\
+libft_functions/ft_strlen_c.c\
+libft_functions/ft_strmap.c\
+libft_functions/ft_strmapi.c\
+libft_functions/ft_strncat.c\
+libft_functions/ft_strncmp.c\
+libft_functions/ft_strncpy.c\
+libft_functions/ft_strnequ.c\
+libft_functions/ft_strnew.c\
+libft_functions/ft_strnstr.c\
+libft_functions/ft_strrchr.c\
+libft_functions/ft_strsplit.c\
+libft_functions/ft_strstr.c\
+libft_functions/ft_strsub.c\
+libft_functions/ft_strtrim.c\
+libft_functions/ft_swap.c\
 
 POINT_O = $(POINT_C:.c=.o)
 

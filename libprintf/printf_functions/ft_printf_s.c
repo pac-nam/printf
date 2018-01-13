@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 16:48:06 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 13:56:39 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/13 15:25:30 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_printf_s_space(int nb)
 	str[nb] = '\0';
 	nb = 0;
 	while (str[nb])
-		str[nb] = ' ';
+		str[nb++] = ' ';
 	write(1, str, nb);
 	return (nb);
 }
@@ -37,11 +37,11 @@ int			ft_printf_s(va_list ap, int *info)
 	if (info[2] != -1)
 	{
 		write(1, str, info[6]);
-		i = ft_printf_s_space(info[6] - info[5])
+		i = ft_printf_s_space(info[5] - info[6]);
 	}
 	else
 	{
-		i = ft_printf_s_space(info[6] - info[5])
+		i = ft_printf_s_space(info[5] - info[6]);
 		write(1, str, info[6]);
 	}
 	return (info[6] + i);

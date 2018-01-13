@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 15:18:27 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/08 12:24:20 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/13 16:04:22 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf/header/libprintf.h"
-#include <stdio.h>
-
-int			main(void)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	ft_printf("printf :\n");
-	printf("start|%10.8s|end\n", "01235644456789");
-	ft_printf("ft_printf :\n");
-	ft_printf("start|%10.8s|end\n", "01235644456789");
-	return (0);
+	int		i;
+	int		j;
+
+	i = 0;
+	while (s1[i] != '\0')
+		i++;
+	j = 0;
+	while (s2[j] != '\0')
+	{
+		s1[i] = s2[j];
+		i++;
+		j++;
+	}
+	s1[i] = '\0';
+	return (s1);
 }

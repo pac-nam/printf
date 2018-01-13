@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 15:18:27 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/08 16:35:32 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/13 16:09:34 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf/header/libprintf.h"
-#include <stdio.h>
+#include "../header/libft.h"
 
-int			main(void)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	ft_printf("printf :\n");
-	printf("start|%10.8s|end\n", "01235644456789");
-	ft_printf("ft_printf :\n");
-	ft_printf("start|%10.8s|end\n", "01235644456789");
-	return (0);
+	int				i;
+	int				j;
+	int				save;
+
+	i = 0;
+	j = 0;
+	save = 0;
+	if (needle[0] == '\0')
+		return ((char*)haystack);
+	while (haystack[i] != '\0')
+	{
+		while (haystack[i] == needle[j])
+		{
+			if (needle[j + 1] == '\0')
+				return ((char*)&haystack[save]);
+			i++;
+			j++;
+		}
+		save++;
+		i = save;
+		j = 0;
+	}
+	return (NULL);
 }

@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 15:18:27 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/08 13:13:30 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/13 16:07:57 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf/header/libprintf.h"
-#include <stdio.h>
+#include "../header/libft.h"
 
-int			main(void)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	ft_printf("printf :\n");
-	printf("start|%10.8s|end\n", "01235644456789");
-	ft_printf("ft_printf :\n");
-	ft_printf("start|%10.8s|end\n", "01235644456789");
-	return (0);
+	size_t	i;
+	size_t	j;
+
+	i = ft_strlen(dst);
+	j = ft_strlen(src);
+	if (size <= i)
+		return (size + j);
+	if (j < size - i)
+	{
+		ft_memcpy(dst + i, src, j);
+		dst = dst + i + j;
+	}
+	else
+	{
+		ft_memcpy(dst + i, src, size - i - 1);
+		dst = dst + size - 1;
+	}
+	*dst = '\0';
+	return (i + j);
 }

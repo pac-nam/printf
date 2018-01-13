@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 15:18:27 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/09 13:45:45 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/13 16:08:31 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf/header/libprintf.h"
-#include <stdio.h>
+#include "../header/libft.h"
 
-int			main(void)
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	ft_printf("printf :\n");
-	printf("start|%10.8s|end\n", "01235644456789");
-	ft_printf("ft_printf :\n");
-	ft_printf("start|%10.8s|end\n", "01235644456789");
-	return (0);
+	char	*dest;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	if (s == NULL)
+		return (NULL);
+	while (s[i] != '\0')
+		i++;
+	if (!(dest = (char*)malloc((sizeof(char)) * (i + 1))))
+		return (NULL);
+	while (s[j])
+	{
+		dest[j] = f(j, s[j]);
+		j++;
+	}
+	dest[j] = '\0';
+	return (dest);
 }
