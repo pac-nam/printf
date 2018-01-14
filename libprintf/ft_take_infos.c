@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 13:37:11 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/13 15:55:35 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/14 15:29:14 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ static int		ft_printf_size(char *str, int max)
 	while (str[i] != 'h' && str[i] != 'l' &&
 			str[i] != 'j' && str[i] != 'z' && i < max)
 		i++;
-	if (str[i] == 'h' && str[i] == 'h')
+	if (str[i] == 'h' && str[i + 1] == 'h')
 		return (1);
 	if (str[i] == 'h')
 		return (2);
-	if (str[i] == 'l' && str[i] == 'l')
+	if (str[i] == 'l' && str[i + 1] == 'l')
 		return (3);
 	if (str[i] == 'l')
 		return (4);
@@ -61,60 +61,18 @@ static int		ft_printf_size(char *str, int max)
 	return (0);
 }
 
-static int      ft_printf_second_type(char c)
-{
-	if (c == 'C')
-		return (13);
-	if (c == 'e')
-		return (14);
-	if (c == 'E')
-		return (15);
-	if (c == 'f' || c == 'i')
-		return (16);
-	if (c == 'F')
-		return (17);
-	if (c == 'g')
-		return (18);
-	if (c == 'G')
-		return (19);
-	if (c == 'a')
-		return (20);
-	if (c == 'A')
-		return (21);
-	if (c == 'n')
-		return (22);
-	if (c == '%')
-		return (23);
-	return (0);
-}
-
 static int		ft_printf_type(char c)
 {
-	if (c == 's')
+	char		*str;
+	int			i;
+
+	if (c == 'i')
 		return (1);
-	if (c == 'd' || c == 'i')
-		return (2);
-	if (c == 'p')
-		return (3);
-	if (c == 'S')
-		return (4);
-	if (c == 'D')
-		return (5);
-	if (c == 'o')
-		return (6);
-	if (c == 'O')
-		return (7);
-	if (c == 'u')
-		return (8);
-	if (c == 'U')
-		return (9);
-	if (c == 'x')
-		return (10);
-	if (c == 'X')
-		return (11);
-	if (c == 'c')
-		return (12);
-	return (ft_printf_second_type(c));
+	str = "sdpSDoOuUxXcCeEfFgGaAn%";
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	return (i);
 }
 
 void			ft_take_infos(char *format, int **info)
