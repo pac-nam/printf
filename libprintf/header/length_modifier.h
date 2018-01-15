@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_di.c                                     :+:      :+:    :+:   */
+/*   length_modifier.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/11 10:25:14 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/15 14:08:26 by tbleuse          ###   ########.fr       */
+/*   Created: 2018/01/15 13:56:16 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/15 14:08:28 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/length_modifier.h"
+#ifndef LENGTH_MODIFIER_H
+# define LENGTH_MODIFIER_H
+# include "libft.h"
 
-int         ft_printf_di(va_list ap, int *info)
+typedef union u_printf_union
 {
-u_printf
-
-	ap = NULL;
-	info[0] = 0;
-	return (0);
+	signed char		hh;
+	short			h;
+	long			l;
+	long long		ll;
+	intmax_t		j;
+	size_t			z;
 }
+
+#endif
