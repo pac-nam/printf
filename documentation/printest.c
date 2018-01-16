@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 16:56:34 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/14 13:27:07 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/16 16:10:04 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int		main(void)
 	char		something;
 
 	something = 83;
-	printf("start|%hd|end", (short)8);
+	printf("start|%hd|end",(short)56);
 	return (0);
 }

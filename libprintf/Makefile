@@ -6,7 +6,7 @@
 #    By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 10:34:52 by tbleuse           #+#    #+#              #
-#    Updated: 2018/01/13 18:01:15 by tbleuse          ###   ########.fr        #
+#    Updated: 2018/01/16 17:25:13 by tbleuse          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ POINT_C = ft_printf.c\
 		  ft_m_count.c\
 		  ft_last_char.c\
 		  ft_take_infos.c\
+		  ft_lltoa.c\
 	printf_functions/ft_printf_error.c\
 	printf_functions/ft_printf_s.c\
 	printf_functions/ft_printf_di.c\

@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   length_modifier.h                                  :+:      :+:    :+:   */
+/*   limit.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/15 13:56:16 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/16 15:05:59 by tbleuse          ###   ########.fr       */
+/*   Created: 2018/01/16 15:29:44 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/16 16:32:50 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LENGTH_MODIFIER_H
-# define LENGTH_MODIFIER_H
-# include "libft.h"
+#include <stdio.h>
+#include <limits.h>
+#include <stdlib.h>
 
-typedef union		u_printf_union
+int		main(void)
 {
-	int				zero;
-	signed char		hh;
-	short			h;
-	long			l;
-	long long		ll;
-	intmax_t		j;
-	size_t			z;
-}					t_printf_union;
+	size_t		s;
+	char		*i;
 
-#endif
+	i = NULL;
+	s = 46844646;
+/*	printf("intmax : %d\n", INT_MAX);
+	printf("longmax : %ld\n", LONG_MAX);
+*/	if (s > i)
+		i++;
+	return (0);
+}
