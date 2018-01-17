@@ -6,29 +6,48 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:25:14 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/16 17:58:38 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/17 17:07:35 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 
-static int	ft_printf_di_flagless(char *str, int *info)
+static int	ft_printf_di_rest(char *str, int *info)
 {
-	char		tmp;
-	int			i;
+	int		len;
 
-	i = -1;
-	if (info[3] && str[0] != '-')
+	len = (int)ft_strlen(str);
+	if (info[5] > len)
 	{
-		tmp = str;
-		if (!(str = (char*)malloc(ft_strlen(str) + 2)))
-			return (0);
-		str[0] = '+';
-		while (tmp[++i] != '\0')
-			str[i + 1] = tmp[i];
-		ft_strdel(&tmp);
+		if (info[1] != 0)
+			ft_printnchar(info[5] - len, ' ');
+		else
+			ft_printnchar(info[5] - len, '0');
 	}
-	return (ft_strlen(str));
+	return (info[5] - len);
+}
+
+static int	ft_printf_di_second(char **str, int *info)
+{
+	int		count;
+
+	count = 0;
+	if (!(str = ft_addncharbefore(info[6] - (int)ft_strlen(*str), '0', str)))
+		return (0);
+	if (info[3] != -1)
+		if (!(str = ft_addncharbefore(1, '+', str)))
+			return (0);
+	if (info[4] != -1)
+		if (!(str = ft_addncharbefore(1, ' ', str)))
+			return (0);
+	if (info[2] == -1)
+		count += ft_printf_di_rest(*str, info);
+	ft_putstr(*str);
+	count += ft_strlen(*str);
+	if (info[2] != -1)
+		count += ft_printf_di_rest(*str, info);
+	ft_strdel(str);
+	return (count);
 }
 
 int         ft_printf_di(va_list ap, int *info)
@@ -50,7 +69,6 @@ int         ft_printf_di(va_list ap, int *info)
 		str = ft_lltoa((long long)(intmax_t)va_arg(ap, long long));
 	if (info[7] == 6)
 		str = ft_lltoa((long long)va_arg(ap, unsigned long long));
-	count = ft_printf_di_flagless(str, info);
-	ft_strdel(&str);
+	count = ft_printf_di_second(&str, info);
 	return(count);
 }

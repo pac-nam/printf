@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 13:37:11 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/14 15:29:14 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/17 17:06:57 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ void			ft_take_infos(char *format, int **info)
 		(*info)[2] = 1;
 	if (ft_strnstr(format, "+", max))
 		(*info)[3] = 1;
+	if (ft_strnstr(format, " ", max))
+		(*info)[4] = 1;
 	ft_printf_infos_z_len_pre(info, format, max);
 	(*info)[7] = ft_printf_size(format, max);
 	(*info)[8] = ft_printf_type(format[max]);

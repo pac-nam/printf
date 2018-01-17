@@ -6,17 +6,15 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:26:37 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/11 13:12:32 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/17 16:30:13 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/libprintf.h"
+#include "../header/libprintf.h"
 
-int         ft_printf_g(char *format, va_list ap, int length, int precision)
+int         ft_printf_g(va_list ap, int *info)
 {
-	format = NULL;
 	ap = NULL;
-        length = 0;
-        precision = 0;
+	info[0] = 0;
 	return (0);
 }

@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_c.c                                      :+:      :+:    :+:   */
+/*   ft_printnchar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/11 10:24:41 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/17 16:27:49 by tbleuse          ###   ########.fr       */
+/*   Created: 2018/01/17 16:44:15 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/17 16:48:27 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/libprintf.h"
+#include "header/libft.h"
 
-int         ft_printf_c(char *format, va_list ap, int length, int precision)
+int  ft_printnchar(int nb, char c)
 {
-	format = NULL;
-	ap = NULL;
-        length = 0;
-        precision = 0;
-	return (0);
+	char        *str;
+
+	if (nb <= 0 || (!(str = (char*)malloc(nb + 1))))
+		return (0);
+	str[nb] = '\0';
+	nb = 0;
+	while (str[nb])
+		str[nb++] = c;
+	write(1, str, nb);
+	ft_strdel(&str);
+	return (nb);
 }

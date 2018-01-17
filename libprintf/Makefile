@@ -6,7 +6,7 @@
 #    By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 10:34:52 by tbleuse           #+#    #+#              #
-#    Updated: 2018/01/16 17:25:13 by tbleuse          ###   ########.fr        #
+#    Updated: 2018/01/17 16:48:00 by tbleuse          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,33 @@ POINT_C = ft_printf.c\
 		  ft_last_char.c\
 		  ft_take_infos.c\
 		  ft_lltoa.c\
+		  ft_addncharbefore.c\
+		  ft_printnchar.c\
 	printf_functions/ft_printf_error.c\
 	printf_functions/ft_printf_s.c\
 	printf_functions/ft_printf_di.c\
+	printf_functions/ft_printf_p.c\
+	printf_functions/ft_printf_ms.c\
+	printf_functions/ft_printf_md.c\
+	printf_functions/ft_printf_o.c\
+	printf_functions/ft_printf_mo.c\
+	printf_functions/ft_printf_u.c\
+	printf_functions/ft_printf_mu.c\
+	printf_functions/ft_printf_x.c\
+	printf_functions/ft_printf_mx.c\
+	printf_functions/ft_printf_c.c\
+	printf_functions/ft_printf_mc.c\
+	printf_functions/ft_printf_e.c\
+	printf_functions/ft_printf_me.c\
+	printf_functions/ft_printf_f.c\
+	printf_functions/ft_printf_mf.c\
+	printf_functions/ft_printf_g.c\
+	printf_functions/ft_printf_mg.c\
+	printf_functions/ft_printf_a.c\
+	printf_functions/ft_printf_ma.c\
+	printf_functions/ft_printf_n.c\
+	printf_functions/ft_printf_modulo.c\
+	printf_functions/ft_printf_error.c\
 libft_functions/ft_atoi.c\
 libft_functions/ft_bzero.c\
 libft_functions/ft_isalnum.c\
