@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/17 15:29:19 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/18 14:58:51 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,25 @@ static void	ft_printf_function_array(int(*((*f)[]))(va_list, int*))
 {
 	(*f)[0] = &ft_printf_s;
 	(*f)[1] = &ft_printf_di;
-	(*f)[2] = &ft_printf_p;
+	(*f)[2] = &ft_printf_ouxmx;
 	(*f)[3] = &ft_printf_ms;
 	(*f)[4] = &ft_printf_md;
-	(*f)[5] = &ft_printf_o;
+	(*f)[5] = &ft_printf_p;
 	(*f)[6] = &ft_printf_mo;
-	(*f)[7] = &ft_printf_u;
-	(*f)[8] = &ft_printf_mu;
-	(*f)[9] = &ft_printf_x;
-	(*f)[10] = &ft_printf_mx;
-	(*f)[11] = &ft_printf_c;
-	(*f)[12] = &ft_printf_mc;
-	(*f)[13] = &ft_printf_e;
-	(*f)[14] = &ft_printf_me;
-	(*f)[15] = &ft_printf_f;
-	(*f)[16] = &ft_printf_mf;
-	(*f)[17] = &ft_printf_g;
-	(*f)[18] = &ft_printf_mg;
-	(*f)[19] = &ft_printf_a;
-	(*f)[20] = &ft_printf_ma;
-	(*f)[21] = &ft_printf_n;
-	(*f)[22] = &ft_printf_modulo;
-	(*f)[23] = &ft_printf_error;
+	(*f)[7] = &ft_printf_mu;
+	(*f)[8] = &ft_printf_c;
+	(*f)[9] = &ft_printf_mc;
+	(*f)[10] = &ft_printf_e;
+	(*f)[11] = &ft_printf_me;
+	(*f)[12] = &ft_printf_f;
+	(*f)[13] = &ft_printf_mf;
+	(*f)[14] = &ft_printf_g;
+	(*f)[15] = &ft_printf_mg;
+	(*f)[16] = &ft_printf_a;
+	(*f)[17] = &ft_printf_ma;
+	(*f)[18] = &ft_printf_n;
+	(*f)[19] = &ft_printf_modulo;
+	(*f)[20] = &ft_printf_error;
 }
 
 /*
@@ -60,9 +57,9 @@ static int	ft_printf_next(char *str, va_list ap)
 {
 	int			*info;
 	int			count;
-	int			(*ft_printf_tab[24])(va_list, int*);
+	int			(*ft_printf_tab[21])(va_list, int*);
 
-	if (!(info = (int*)malloc(sizeof(int) * 9)))
+	if (!(info = (int*)malloc(sizeof(int) * 10)))
 		return (0);
 	ft_printf_function_array(&ft_printf_tab);
 	ft_take_infos(str, &info);

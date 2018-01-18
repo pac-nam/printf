@@ -6,27 +6,27 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 15:59:51 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/17 16:24:09 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/18 15:43:07 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/libft.h"
 
-char		**ft_addncharbefore(int n, char c, char **str)
+int			ft_addncharbefore(int n, char c, char **str)
 {
 	char		*tmp;
 	int			i;
 	int			len;
 
 	if (!str || !(*str))
-		return (NULL);
+		return (0);
 	i = 0;
 	if (n < 1)
-		return (str);
+		return (1);
 	len = ft_strlen(*str);
 	tmp = *str;
 	if (!(*str = malloc(len + n + 1)))
-		return (NULL);
+		return (0);
 	(*str)[len + n] = '\0';
 	while (i < n)
 		(*str)[i++] = c;
@@ -34,5 +34,5 @@ char		**ft_addncharbefore(int n, char c, char **str)
 	while (len--)
 		(*str)[i++] = tmp[n++];
 	ft_strdel(&tmp);
-	return (str);
+	return (1);
 }

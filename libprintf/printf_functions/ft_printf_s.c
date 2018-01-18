@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 16:48:06 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/17 16:46:32 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/18 14:44:43 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int			ft_printf_s(va_list ap, int *info)
 	char		*str;
 	int			i;
 
+	str = va_arg(ap, char*);
 	if (info[6] == -1)
 		info[6] = ft_strlen(str);
-	str = va_arg(ap, char*);
 	if (info[2] != -1)
 	{
 		write(1, str, info[6]);

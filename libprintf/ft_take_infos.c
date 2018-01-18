@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 13:37:11 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/17 17:06:57 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/18 15:31:58 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int		ft_printf_infos_z_len_pre(int **info, char *str, int max)
 	int			i;
 
 	i = 0;
-	while (ft_isdigit(str[i]) && str[i] != '.' && str[i] != 'h' &&
+	while (!(ft_isdigit(str[i])) && str[i] != '.' && str[i] != 'h' &&
 			str[i] != 'l' && str[i] != 'j' && str[i] != 'z' && i < max)
 		i++;
 	if (str[i] == '0')
@@ -68,7 +68,9 @@ static int		ft_printf_type(char c)
 
 	if (c == 'i')
 		return (1);
-	str = "sdpSDoOuUxXcCeEfFgGaAn%";
+	if (c == 'u' || c == 'x' || c == 'X')
+		return (2);
+	str = "sdoSDpOUcCeEfFgGaAn%";
 	i = 0;
 	while (str[i] && str[i] != c)
 		i++;
@@ -99,4 +101,5 @@ void			ft_take_infos(char *format, int **info)
 		(*info)[1] = -1;
 	if ((*info)[3] != -1)
 		(*info)[4] = -1;
+	(*info)[9] = (int)format[max];
 }
