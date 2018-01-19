@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 16:47:04 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/09 15:44:25 by tbleuse           #+#    #+#             */
+/*   Updated: 2017/12/14 17:01:33 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf/header/libprintf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int			main(void)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str = "start|%#-50.40jx|end\n";
-	int		count;
+	int		i;
+	int		j;
+	char	*str;
 
-	ft_printf("printf :\n");
-	count = printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	ft_printf("ft_printf :\n");
-	count = ft_printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	return (0);
+	i = -1;
+	j = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	if (!(str = (char*)malloc((sizeof(char)) * (ft_strlen(s1)
+			+ ft_strlen(s2) + 1))))
+		return (NULL);
+	while (s1[++i] != '\0')
+		str[i] = s1[i];
+	while (s2[j] != '\0')
+		str[i++] = s2[j++];
+	str[i] = '\0';
+	return (str);
 }

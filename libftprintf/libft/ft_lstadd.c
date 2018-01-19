@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 16:47:04 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/13 14:54:43 by tbleuse           #+#    #+#             */
+/*   Updated: 2017/11/22 11:08:35 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf/header/libprintf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int			main(void)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	char	*str = "start|%#-50.40jx|end\n";
-	int		count;
-
-	ft_printf("printf :\n");
-	count = printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	ft_printf("ft_printf :\n");
-	count = ft_printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	return (0);
+	if (alst == NULL)
+		return ;
+	new->next = *alst;
+	*alst = new;
 }

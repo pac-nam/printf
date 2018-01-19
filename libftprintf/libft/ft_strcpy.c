@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 16:47:04 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/08 12:11:15 by tbleuse           #+#    #+#             */
+/*   Updated: 2017/11/16 16:43:49 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf/header/libprintf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int			main(void)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	char	*str = "start|%#-50.40jx|end\n";
-	int		count;
+	size_t	i;
 
-	ft_printf("printf :\n");
-	count = printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	ft_printf("ft_printf :\n");
-	count = ft_printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	return (0);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

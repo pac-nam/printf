@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 16:47:04 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/29 14:47:19 by tbleuse           #+#    #+#             */
+/*   Updated: 2017/12/11 19:09:08 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf/header/libprintf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int			main(void)
+void		*ft_realloc(void *ptr, size_t size)
 {
-	char	*str = "start|%#-50.40jx|end\n";
-	int		count;
+	void	*ptr2;
 
-	ft_printf("printf :\n");
-	count = printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	ft_printf("ft_printf :\n");
-	count = ft_printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	return (0);
+	if (!(ptr2 = malloc(size)))
+		return (NULL);
+	ptr2 = ft_memcpy(ptr2, ptr, ft_strlen((char*)ptr));
+	ft_memdel(&ptr);
+	return (ptr2);
 }

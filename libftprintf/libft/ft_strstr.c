@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 16:47:04 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/08 16:35:32 by tbleuse           #+#    #+#             */
+/*   Updated: 2017/11/16 16:47:43 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf/header/libprintf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int			main(void)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	char	*str = "start|%#-50.40jx|end\n";
-	int		count;
+	int				i;
+	int				j;
+	int				save;
 
-	ft_printf("printf :\n");
-	count = printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	ft_printf("ft_printf :\n");
-	count = ft_printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	return (0);
+	i = 0;
+	j = 0;
+	save = 0;
+	if (needle[0] == '\0')
+		return ((char*)haystack);
+	while (haystack[i] != '\0')
+	{
+		while (haystack[i] == needle[j])
+		{
+			if (needle[j + 1] == '\0')
+				return ((char*)&haystack[save]);
+			i++;
+			j++;
+		}
+		save++;
+		i = save;
+		j = 0;
+	}
+	return (NULL);
 }

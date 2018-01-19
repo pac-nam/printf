@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 16:47:04 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/08 12:24:20 by tbleuse           #+#    #+#             */
+/*   Updated: 2017/11/17 16:47:49 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf/header/libprintf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int			main(void)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	char	*str = "start|%#-50.40jx|end\n";
-	int		count;
+	int					i;
+	size_t				j;
 
-	ft_printf("printf :\n");
-	count = printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	ft_printf("ft_printf :\n");
-	count = ft_printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	return (0);
+	i = ft_strlen(s1);
+	j = 0;
+	if (n > 0)
+	{
+		while (j < n && s2[j])
+		{
+			s1[i] = s2[j];
+			i++;
+			j++;
+		}
+		s1[i] = '\0';
+	}
+	return (s1);
 }

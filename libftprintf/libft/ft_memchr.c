@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 16:47:04 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/12 11:48:48 by tbleuse           #+#    #+#             */
+/*   Updated: 2017/11/17 17:02:44 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf/header/libprintf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int			main(void)
+void		*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*str = "start|%#-50.40jx|end\n";
-	int		count;
+	unsigned char		*tmp;
+	size_t				i;
 
-	ft_printf("printf :\n");
-	count = printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	ft_printf("ft_printf :\n");
-	count = ft_printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	return (0);
+	tmp = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		if (tmp[i] == (unsigned char)c)
+			return (&tmp[i]);
+		i++;
+	}
+	return (NULL);
 }

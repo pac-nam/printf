@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf_c.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 16:47:04 by tbleuse          ###   ########.fr       */
+/*   Created: 2018/01/11 10:24:41 by tbleuse           #+#    #+#             */
+/*   Updated: 2018/01/19 14:39:09 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf/header/libprintf.h"
-#include <stdio.h>
+#include "../header/libprintf.h"
+#include "../header/function_array.h"
 
-int			main(void)
+int         ft_printf_c(va_list ap, int *info)
 {
-	char	*str = "start|%#-50.40jx|end\n";
 	int		count;
+	char	c;
 
-	ft_printf("printf :\n");
-	count = printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	ft_printf("ft_printf :\n");
-	count = ft_printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	return (0);
+	count = 0;
+	if (info[7] == 3)
+		return (ft_printf_mc(ap, info));
+	c = (char)va_arg(ap, int);
+	if (info[2] == -1)
+		count += ft_printnchar(info[5] - 1, ' ');
+	write(1, &c, 1);
+	if (info[2] != -1)
+		count += ft_printnchar(info[5] - 1, ' ');
+	return (count + 1);
 }

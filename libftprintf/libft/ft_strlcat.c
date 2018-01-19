@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 16:47:04 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/08 13:13:30 by tbleuse           #+#    #+#             */
+/*   Updated: 2017/12/14 17:02:03 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf/header/libprintf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int			main(void)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char	*str = "start|%#-50.40jx|end\n";
-	int		count;
+	size_t	i;
+	size_t	j;
 
-	ft_printf("printf :\n");
-	count = printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	ft_printf("ft_printf :\n");
-	count = ft_printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	return (0);
+	i = ft_strlen(dst);
+	j = ft_strlen(src);
+	if (size <= i)
+		return (size + j);
+	if (j < size - i)
+	{
+		ft_memcpy(dst + i, src, j);
+		dst = dst + i + j;
+	}
+	else
+	{
+		ft_memcpy(dst + i, src, size - i - 1);
+		dst = dst + size - 1;
+	}
+	*dst = '\0';
+	return (i + j);
 }

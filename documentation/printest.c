@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 16:56:34 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/18 17:32:17 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/19 14:35:09 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 int		main(void)
 {
-	char		something;
+	wchar_t		something;
 
 	something = 83;
-	printf("start|%S|end", (wchar_t*)"qwerty");
+	printf("start|%C|end", 216);
 	return (0);
 }

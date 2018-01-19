@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:22:59 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 16:47:04 by tbleuse          ###   ########.fr       */
+/*   Created: 2017/11/12 12:32:37 by tbleuse           #+#    #+#             */
+/*   Updated: 2017/11/17 15:23:52 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf/header/libprintf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int			main(void)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*str = "start|%#-50.40jx|end\n";
-	int		count;
+	const unsigned char	*tmp1;
+	const unsigned char	*tmp2;
 
-	ft_printf("printf :\n");
-	count = printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
-	ft_printf("ft_printf :\n");
-	count = ft_printf(str, 12345678910111213);
-	ft_printf("score : %d\n\n", count);
+	tmp1 = (const unsigned char*)s1;
+	tmp2 = (const unsigned char*)s2;
+	if (s1 == s2 || n == 0)
+		return (0);
+	while (n--)
+	{
+		if (*tmp1 != *tmp2)
+			return (*tmp1 - *tmp2);
+		if (n)
+		{
+			tmp1++;
+			tmp2++;
+		}
+	}
 	return (0);
 }
