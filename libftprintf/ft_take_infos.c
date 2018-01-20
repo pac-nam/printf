@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 13:37:11 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 15:04:33 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 13:16:46 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int		ft_printf_infos_z_len_pre(int **info, char *str, int max)
 
 static int		ft_printf_size(char *str, int max)
 {
-	int         i;
+	int			i;
 
 	i = 0;
 	while (str[i] != 'h' && str[i] != 'l' &&
@@ -72,7 +72,7 @@ static int		ft_printf_type(char c)
 		return (2);
 	if (c == 'U')
 		return (6);
-	str = "sdoSDpOcCeEfFgGaAn";
+	str = "sdoSDpOcCeEfFgGaA";
 	i = 0;
 	while (str[i] && str[i] != c)
 		i++;

@@ -6,11 +6,25 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 13:12:03 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/10 11:04:24 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 12:13:37 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_m_count(const char *format)
+static void		ft_m_count_second(int *m_count, int *save)
+{
+	if (*save == 0)
+	{
+		*m_count = *m_count + 1;
+		*save = 1;
+	}
+	else
+	{
+		*m_count = *m_count - 1;
+		*save = 0;
+	}
+}
+
+int				ft_m_count(const char *format)
 {
 	int		i;
 	int		m_count;
@@ -22,18 +36,7 @@ int		ft_m_count(const char *format)
 	while (format[i])
 	{
 		if (format[i] == '%')
-		{
-			if (save == 0)
-			{
-				m_count++;
-				save = 1;
-			}
-			else
-			{
-				m_count--;
-				save = 0;
-			}
-		}
+			ft_m_count_second(&m_count, &save);
 		if (format[i] != '%')
 			save = 0;
 		i++;

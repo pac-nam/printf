@@ -6,15 +6,15 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 16:44:15 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 13:25:01 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 12:04:22 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/libft.h"
+#include "header/libprintf.h"
 
-int  ft_printnchar(int nb, char c)
+int		ft_printnchar(int nb, char c)
 {
-	char        *str;
+	char		*str;
 	int			nb2;
 
 	if (nb < 1)

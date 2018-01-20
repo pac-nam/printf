@@ -6,15 +6,17 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:27:21 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/17 16:36:59 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 13:05:46 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 
-int         ft_printf_n(va_list ap, int *info)
+int		ft_printf_n(va_list ap, int count)
 {
-	ap = NULL;
-	info[0] = 0;
+	int		*ptr;
+
+	ptr = va_arg(ap, int*);
+	*ptr = count;
 	return (0);
 }

@@ -6,15 +6,14 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:26:58 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 13:32:16 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 13:14:34 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 
-int	ft_printf_modulo(char *str, int *index)
+int	ft_printf_modulo(char *str)
 {
-	*index = *index + 2;
 	write(1, str, 1);
 	return (1);
 }

@@ -6,14 +6,14 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:24:41 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 14:39:09 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 11:56:45 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 #include "../header/function_array.h"
 
-int         ft_printf_c(va_list ap, int *info)
+int			ft_printf_c(va_list ap, int *info)
 {
 	int		count;
 	char	c;

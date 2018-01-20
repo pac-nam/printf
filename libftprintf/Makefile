@@ -6,15 +6,17 @@
 #    By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 10:34:52 by tbleuse           #+#    #+#              #
-#    Updated: 2018/01/19 16:47:01 by tbleuse          ###   ########.fr        #
+#    Updated: 2018/01/20 12:59:57 by tbleuse          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-LIBFT = libft
-
 NAME = libftprintf
+
+LIBFT = -L/libft -lft
+
+MAKELIBFT = make -C libft/
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -53,10 +55,10 @@ POINT_C = ft_printf.c\
 
 POINT_O = $(POINT_C:.c=.o)
 
-all : $(NAME) $(LIBFT)
+all : $(LIBFT) $(NAME)
 
 $(LIBFT) :
-	make all -C $(LIBFT)
+	$(MAKELIBFT) all
 
 $(NAME) : $(POINT_O) $(NAME).a
 
@@ -65,19 +67,21 @@ $(NAME) : $(POINT_O) $(NAME).a
 	ranlib $(NAME).a
 
 %.o: %.c
-	$(CC) -c $(FLAGS) $< $(LIBFT)/libft.a -o $@
+	$(CC) -c $(FLAGS) $< -o $@
 
 clean :
 	/bin/rm -f $(POINT_O)
-	make clean -C $(LIBFT)
+	$(MAKELIBFT) clean
 
 fclean : clean
 	/bin/rm -f $(NAME).a
-	make fclean -C $(LIBFT)
+	$(MAKELIBFT) fclean
 
 lib : all clean
 
 re : fclean all
+
+.PHONY : all clean fclean re
 
 coffee:
 	@clear
@@ -179,5 +183,3 @@ coffee:
 	@echo "     '._     """----.....______.....----"""         _.'"
 	@echo '         ""--..,,_____            _____,,..--"""'''
 	@echo '                      """------"""'
-
-

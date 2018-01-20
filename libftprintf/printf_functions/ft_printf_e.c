@@ -6,13 +6,13 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:25:40 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/17 16:39:19 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 11:56:57 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 
-int         ft_printf_e(va_list ap, int *info)
+int			ft_printf_e(va_list ap, int *info)
 {
 	ap = NULL;
 	info[0] = 0;

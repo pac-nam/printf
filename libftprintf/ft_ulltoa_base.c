@@ -6,11 +6,11 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 10:04:25 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 13:11:52 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 12:06:12 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/libft.h"
+#include "header/libprintf.h"
 
 static int		ft_set_tab(char **tab)
 {
@@ -36,7 +36,7 @@ static int		ft_set_tab(char **tab)
 	return (1);
 }
 
-char		*ft_ulltoa_base(unsigned long long n, int base)
+char			*ft_ulltoa_base(unsigned long long n, int base)
 {
 	int						i;
 	unsigned long long		n2;

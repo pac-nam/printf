@@ -6,13 +6,13 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:28:07 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 13:23:49 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 11:50:47 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 
-int         ft_printf_p(va_list ap, int *info)
+int				ft_printf_p(va_list ap, int *info)
 {
 	char		*ptr;
 	int			count;

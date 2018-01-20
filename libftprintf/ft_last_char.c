@@ -6,15 +6,15 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 16:38:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/12 15:44:16 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 11:57:40 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/libft.h"
+#include "header/libprintf.h"
 
 char		ft_last_char(char *str)
 {
-	int     i;
+	int		i;
 
 	i = 1;
 	while (str[i] != 's' && str[i] != 'S' && str[i] != 'p' && str[i] != 'd' &&

@@ -6,15 +6,15 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:29:26 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 16:17:01 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 11:50:36 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 
-static int      ft_printf_x_rest(char *str, int *info)
+static int		ft_printf_x_rest(char *str, int *info)
 {
-	int     len;
+	int		len;
 
 	len = (int)ft_strlen(str);
 	if (info[5] > len)
@@ -30,8 +30,8 @@ static int      ft_printf_x_rest(char *str, int *info)
 
 static int		ft_addoxbefore(char **str)
 {
-	char        *tmp;
-	int         len;
+	char		*tmp;
+	int			len;
 
 	if (!str || !(*str))
 		return (0);
@@ -51,10 +51,10 @@ static int		ft_addoxbefore(char **str)
 	return (1);
 }
 
-int             ft_printf_x(unsigned long long nb, int *info)
+int				ft_printf_x(unsigned long long nb, int *info)
 {
-	int     count;
-	char    *str;
+	int			count;
+	char		*str;
 
 	count = 0;
 	str = ft_ulltoa_base(nb, 16);

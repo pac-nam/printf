@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 16:46:59 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 13:19:36 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ static void	ft_printf_function_array(int(*((*f)[]))(va_list, int*))
 	(*f)[14] = &ft_printf_mg;
 	(*f)[15] = &ft_printf_a;
 	(*f)[16] = &ft_printf_ma;
-	(*f)[17] = &ft_printf_n;
-	(*f)[18] = &ft_printf_error;
+	(*f)[17] = &ft_printf_error;
 }
 
 /*
@@ -51,19 +50,25 @@ static void	ft_printf_function_array(int(*((*f)[]))(va_list, int*))
 **#|0|-|+| |length|precision|size|type|
 */
 
-static int	ft_printf_next(char *str, va_list ap)
+static int	ft_printf_next(char *str, va_list ap, int *count)
 {
 	int			*info;
-	int			count;
 	int			(*ft_printf_tab[19])(va_list, int*);
 
+	if (str[1] == '%')
+	{
+		*count += ft_printf_modulo(str);
+		return (1);
+	}
 	if (!(info = (int*)malloc(sizeof(int) * 10)))
 		return (0);
 	ft_printf_function_array(&ft_printf_tab);
 	ft_take_infos(str, &info);
-	count = (ft_printf_tab[info[8]])(ap, info);
+	if (info[9] == 'n')
+		return (ft_printf_n(ap, *count));
+	*count += (ft_printf_tab[info[8]])(ap, info);
 	ft_memdel((void**)&info);
-	return (count);
+	return (1);
 }
 
 int 		ft_printf(const char *format, ...)
@@ -75,16 +80,14 @@ int 		ft_printf(const char *format, ...)
 
 	i = 0;
 	count = 0;
-	write(1, "qwerty", 6);
 	str = ft_strdup(format);
 	va_start(ap, format);
 	while (str[i])
 	{
-		if (str[i] == '%' && str[i + 1] == '%')
-			count += ft_printf_modulo(&str[i], &i);
-		else if (str[i] == '%')
+		if (str[i] == '%')
 		{
-			count += ft_printf_next(&str[i], ap);
+			if (!ft_printf_next(&str[i], ap, &count))
+				return (ft_printf_error(ap, &count));
 			i = i + ft_last_char_index(&str[i]) + 1;
 		}
 		else

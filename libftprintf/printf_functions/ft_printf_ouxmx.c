@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 14:52:07 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/18 15:42:22 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 11:52:54 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int		ft_printf_ouxmx_second(unsigned long long nb, int *info)
 	return (0);
 }
 
-int             ft_printf_ouxmx(va_list ap, int *info)
+int				ft_printf_ouxmx(va_list ap, int *info)
 {
 	unsigned long long	nb;
 
@@ -44,5 +44,5 @@ int             ft_printf_ouxmx(va_list ap, int *info)
 		nb = (unsigned long long)(uintmax_t)va_arg(ap, long long);
 	if (info[7] == 6)
 		nb = (unsigned long long)va_arg(ap, unsigned long long);
-	return(ft_printf_ouxmx_second(nb, info));
+	return (ft_printf_ouxmx_second(nb, info));
 }

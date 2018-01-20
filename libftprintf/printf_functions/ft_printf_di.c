@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:25:14 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/19 14:57:13 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/20 11:56:28 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	ft_printf_di_second(char **str, int *info)
 	return (count);
 }
 
-int         ft_printf_di(va_list ap, int *info)
+int			ft_printf_di(va_list ap, int *info)
 {
 	char	*str;
 
