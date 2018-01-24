@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:27:21 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/20 13:05:46 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/24 11:53:43 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int		ft_printf_n(va_list ap, int count)
 
 	ptr = va_arg(ap, int*);
 	*ptr = count;
-	return (0);
+	return (1);
 }
