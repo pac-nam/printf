@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:25:14 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/25 14:50:54 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/25 15:02:46 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_printf_di_rest(char *str, int *info)
 	len = (int)ft_strlen(str);
 	if (info[5] > len)
 	{
-		if (info[1] != 0)
+		if (info[1] == -1)
 			ft_printnchar(info[5] - len, ' ');
 		else
 			ft_printnchar(info[5] - len, '0');
