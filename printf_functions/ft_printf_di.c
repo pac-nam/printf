@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:25:14 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/25 15:16:26 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/25 15:20:25 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static int	ft_printf_di_second(char **str, int *info)
 	if (info[0] == 2)
 		if (!ft_addncharbefore(1, '-', str))
 			return (0);
-	if (info[3] != -1 && info[0] != 2 && info[2] != -1)
+	if (info[3] != -1 && info[0] != 2 && info[5] < (int)ft_strlen(*str))
 		if (!ft_addncharbefore(1, '+', str))
 			return (0);
 	if (info[2] == -1)
