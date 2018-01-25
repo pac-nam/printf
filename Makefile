@@ -6,7 +6,7 @@
 #    By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 10:34:52 by tbleuse           #+#    #+#              #
-#    Updated: 2018/01/25 11:38:40 by tbleuse          ###   ########.fr        #
+#    Updated: 2018/01/25 12:05:55 by tbleuse          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,9 @@ CC = gcc
 
 NAME = libftprintf
 
-LIBFT = -L/libft -lft
-
-MAKELIBFT = make -C libft/
-
 FLAGS = -Wall -Wextra -Werror
 
-SRC_NAME = ft_printf.c\
+PRINTF_SRC_NAME = ft_printf.c\
 		ft_m_count.c\
 		ft_last_char.c\
 		ft_take_infos.c\
@@ -53,7 +49,7 @@ SRC_NAME = ft_printf.c\
 		ft_printf_error.c\
 		ft_printf_modulo.c\
 
-LIBSRC_NAME = ft_atoi.c\
+LIBFT_SRC_NAME = ft_atoi.c\
 		ft_bzero.c\
 		ft_isalnum.c\
 		ft_isalpha.c\
@@ -121,19 +117,17 @@ LIBSRC_NAME = ft_atoi.c\
 		ft_lstpushback.c\
 		ft_gnl.c\
 
-OBJ_NAME = (SRC_NAME:.c=.o)
-LIBOBJ_NAME = (LIBOBJ_NAME:.c=.o)
+PRINTF_SRC = $(addprefix printf_functions/, $(PRINTF_SRC_NAME))
+LIBFT_SRC = $(addprefix libft/, $(LIBFT_SRC_NAME))
 
-SRC = $(addprefix printf_functions/, $(SRC_NAME))
-LIBSRC = $(addprefix libft/, $(LIBSRC_NAME))
-
-OBJ = $(SRC:.c=.o)
-LIBOBJ = $(LIBSRC:.c=.o)
+OBJ = $(PRINTF_SRC:.c=.o) $(LIB_LIBSRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(LIBOBJ) $(OBJ)
-	@ar rc $(NAME).a $(LIBOBJ) $(OBJ)
+$(NAME) : $(OBJ) $(NAME).a
+
+%.a:
+	@ar rc $(NAME).a $(OBJ)
 	@ranlib $(NAME).a
 	@echo "libftprintf compiled"
 
@@ -141,7 +135,7 @@ $(NAME) : $(LIBOBJ) $(OBJ)
 	@$(CC) -c $(FLAGS) $< -o $@
 
 clean :
-	@/bin/rm -f $(LIBOBJ) $(OBJ)
+	@/bin/rm -f $(OBJ)
 	@echo "objects have been cleaned"
 
 fclean : clean
