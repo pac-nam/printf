@@ -6,7 +6,7 @@
 #    By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 10:34:52 by tbleuse           #+#    #+#              #
-#    Updated: 2018/01/25 12:05:55 by tbleuse          ###   ########.fr        #
+#    Updated: 2018/01/25 12:17:35 by tbleuse          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,7 +120,10 @@ LIBFT_SRC_NAME = ft_atoi.c\
 PRINTF_SRC = $(addprefix printf_functions/, $(PRINTF_SRC_NAME))
 LIBFT_SRC = $(addprefix libft/, $(LIBFT_SRC_NAME))
 
-OBJ = $(PRINTF_SRC:.c=.o) $(LIB_LIBSRC:.c=.o)
+PRINTF_OBJ = $(PRINTF_SRC:.c=.o)
+LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
+
+OBJ = $(LIBFT_OBJ) $(PRINTF_OBJ)
 
 all : $(NAME)
 
