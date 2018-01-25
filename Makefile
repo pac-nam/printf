@@ -6,7 +6,7 @@
 #    By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 10:34:52 by tbleuse           #+#    #+#              #
-#    Updated: 2018/01/24 17:38:48 by tbleuse          ###   ########.fr        #
+#    Updated: 2018/01/25 11:33:32 by tbleuse          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -135,20 +135,17 @@ all : $(NAME)
 $(NAME) : $(LIBOBJ) $(OBJ) $(NAME).a
 
 %.a: $(LIB) $(OBJ)
-	@ar rc $(NAME).a $(LIBOBJ) $(OBJ)
-	@ranlib $(NAME).a
-	@echo "libftprintf compiled"
+	ar rc $(NAME).a $(LIBOBJ) $(OBJ)
+	ranlib $(NAME).a
 
 %.o: %.c
-	@$(CC) -c $(FLAGS) $< -o $@
+	$(CC) -c $(FLAGS) $< -o $@
 
 clean :
-	@/bin/rm -f $(LIBOBJ) $(OBJ)
-	@echo "objects have been cleaned"
+	/bin/rm -f $(LIBOBJ) $(OBJ)
 
 fclean : clean
-	@/bin/rm -f $(NAME).a
-	@echo "libftprintf deleted"
+	/bin/rm -f $(NAME).a
 
 lib : all clean
 
