@@ -6,12 +6,11 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:24:41 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/25 16:18:02 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/26 15:41:31 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
-#include <wchar.h>
 
 int			ft_printf_mc(va_list ap, int *info)
 {
@@ -19,7 +18,7 @@ int			ft_printf_mc(va_list ap, int *info)
 	wchar_t		c;
 
 	count = 0;
-	c = va_arg(ap, wchar_t);
+	c = (wchar_t)va_arg(ap, wint_t);
 	if (info[2] == -1)
 		count += ft_printnchar(info[5] - 1, ' ');
 	write(1, &c, 1);

@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 16:38:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/24 15:53:39 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/26 12:27:30 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,6 @@ char		ft_last_char(char *str)
 			str[i] != 'a' && str[i] != 'A' && str[i] != 'n' && str[i] != '%' &&
 			str[i] != '\0')
 		i++;
-	if (str[i] == '\0')
-	{
-		ft_putendl("printf error");
-		return (0);
-	}
 	return (str[i]);
 }
 
@@ -46,10 +41,5 @@ int			ft_last_char_index(char *str)
 			str[i] != 'a' && str[i] != 'A' && str[i] != 'n' && str[i] != '%' &&
 			str[i] != '\0')
 		i++;
-	if (str[i] == '\0')
-	{
-		ft_putendl("printf error");
-		return (0);
-	}
 	return (i);
 }

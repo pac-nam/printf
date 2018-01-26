@@ -6,12 +6,13 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/24 15:54:01 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/26 12:23:16 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 #include "../header/function_array.h"
+#include "../header/bonus_printf.h"
 
 static int	ft_print_str(const char *format, int *index)
 {

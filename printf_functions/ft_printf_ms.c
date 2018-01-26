@@ -6,12 +6,11 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 16:48:06 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/25 17:35:22 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/01/26 15:41:40 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
-#include <wchar.h>
 
 static size_t	ft_strlen_wchar_t(wchar_t *str)
 {
