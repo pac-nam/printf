@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/26 12:23:16 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/01 12:18:03 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,12 @@ static int	ft_printf_next(char *str, va_list ap, int *count)
 	int			*info;
 	int			(*ft_printf_tab[19])(va_list, int*);
 
-	if (str[1] == '%')
-	{
-		*count += ft_printf_modulo(str);
-		return (1);
-	}
 	if (!(info = (int*)malloc(sizeof(int) * 10)))
 		return (0);
 	ft_printf_function_array(&ft_printf_tab);
 	ft_take_infos(str, &info);
+	if (info[9] == '%')
+		return (*count += ft_printf_modulo(&info));
 	if (info[9] == 'n')
 		return (ft_printf_n(ap, *count));
 	*count += (ft_printf_tab[info[8]])(ap, info);

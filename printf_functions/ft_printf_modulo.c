@@ -6,14 +6,22 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:26:58 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/20 13:14:34 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/01 12:23:20 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 
-int	ft_printf_modulo(char *str)
+int	ft_printf_modulo(int **info)
 {
-	write(1, str, 1);
+	int		count;
+
+	count = 1;
+	if ((*info)[2] == -1)
+		count += ft_printnchar((*info)[5] - 1, ' ');
+	write(1, "%", 1);
+	if ((*info)[2] != -1)
+		count += ft_printnchar((*info)[5] - 1, ' ');
+	ft_memdel((void**)info);
 	return (1);
 }

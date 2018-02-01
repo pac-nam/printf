@@ -6,11 +6,23 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:29:26 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/01 12:03:44 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/01 12:32:05 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
+
+static char		*ft_upper_all(char *str)
+{
+	int			i;
+
+	i = -1;
+	if (!str)
+		return (NULL);
+	while (str[++i])
+		str[i] = ft_toupper(str[i]);
+	return (str);
+}
 
 static int		ft_printf_mx_rest(char *str, int *info)
 {
@@ -45,7 +57,8 @@ int				ft_printf_mx(unsigned long long nb, int *info)
 	char		*str;
 
 	count = 0;
-	str = ft_ulltoa_base(nb, 16);
+	if (!(str = (ft_upper_all(ft_ulltoa_base(nb, 16)))))
+		return (0);
 	if (!ft_addncharbefore(info[6] - (int)ft_strlen(str), '0', &str))
 		return (0);
 	if (info[2] == -1)
