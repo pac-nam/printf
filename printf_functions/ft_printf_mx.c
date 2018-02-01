@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:29:26 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/01 12:32:05 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/01 16:10:49 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char		*ft_upper_all(char *str)
 {
-	int			i;
+	int				i;
 
 	i = -1;
 	if (!str)
@@ -24,29 +24,30 @@ static char		*ft_upper_all(char *str)
 	return (str);
 }
 
-static int		ft_printf_mx_rest(char *str, int *info)
+static int		ft_printf_mx_rest(char *str, int **info, int nb)
 {
 	int		len;
 	int		to_add;
 
 	to_add = 0;
 	len = (int)ft_strlen(str);
-	if (info[5] > len)
+	if (nb == 0 && (*info)[6] == 0)
+		len = 0;
+	if ((*info)[5] > len)
 	{
-		if (info[1] == -1)
-			ft_printnchar(info[5] - len, ' ');
-		if (info[1] != -1)
+		if ((*info)[0] != -1 && nb != 0)
+			(*info)[5] = (*info)[5] - 2;
+		if ((*info)[1] == -1)
+			ft_printnchar((*info)[5] - len, ' ');
+		if ((*info)[0] != -1 && nb != 0)
 		{
-			if (info[0] != -1)
-			{
-				write(1, "0X", 2);
-				to_add = 2;
-				info[0] = -1;
-				info[5] -= 2;
-			}
-			ft_printnchar(info[5] - len, '0');
+			write(1, "0X", 2);
+			to_add = 2;
+			(*info)[0] = -1;
 		}
-		return (info[5] - len + to_add);
+		if ((*info)[1] != -1)
+			ft_printnchar((*info)[5] - len, '0');
+		return ((*info)[5] - len + to_add);
 	}
 	return (0);
 }
@@ -57,23 +58,25 @@ int				ft_printf_mx(unsigned long long nb, int *info)
 	char		*str;
 
 	count = 0;
-	if (!(str = (ft_upper_all(ft_ulltoa_base(nb, 16)))))
-		return (0);
+	str = ft_upper_all(ft_ulltoa_base(nb, 16));
 	if (!ft_addncharbefore(info[6] - (int)ft_strlen(str), '0', &str))
 		return (0);
 	if (info[2] == -1)
-		count += ft_printf_mx_rest(str, info);
-	if (info[0] != -1)
+		count += ft_printf_mx_rest(str, &info, nb);
+	if (info[0] != -1 && nb != 0)
 	{
 		write(1, "0X", 2);
 		count += 2;
 		info[0] = -1;
-		info[5] -= 2;
+		info[5] = info[5] - 2;
 	}
-	ft_putstr(str);
-	count += (int)ft_strlen(str);
+	if (nb != 0 || info[6] != 0)
+	{
+		ft_putstr(str);
+		count += (int)ft_strlen(str);
+	}
 	if (info[2] != -1)
-		count += ft_printf_mx_rest(str, info);
+		count += ft_printf_mx_rest(str, &info, nb);
 	ft_strdel(&str);
 	return (count);
 }

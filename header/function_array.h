@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 15:37:18 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/01 13:08:42 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/01 15:22:12 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int		ft_printf_c(va_list ap, int *infos);
 int		ft_printf_p(va_list ap, int *infos);
 
 int		ft_printf_modulo(int **info);
-int		ft_printf_error(va_list ap, int *infos);
 int		ft_printf_o(unsigned long long nb, int *infos);
 int		ft_printf_u(unsigned long long nb, int *infos);
 int		ft_printf_x(unsigned long long nb, int *infos);

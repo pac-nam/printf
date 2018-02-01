@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 16:44:15 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/24 15:54:10 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/01 14:46:24 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int		ft_printnchar(int nb, char c)
 	if (!(str = (char*)malloc(nb + 1)))
 		return (0);
 	nb2 = nb;
-	str[nb] = '\0';
-	while (nb)
-		str[--nb] = c;
-	ft_putstr(str);
+	str[nb--] = '\0';
+	while (nb >= 0)
+		str[nb--] = c;
+	write(1, str, nb2);
 	ft_strdel(&str);
 	return (nb2);
 }

@@ -6,7 +6,7 @@
 #    By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 10:34:52 by tbleuse           #+#    #+#              #
-#    Updated: 2018/02/01 13:08:28 by tbleuse          ###   ########.fr        #
+#    Updated: 2018/02/01 15:21:37 by tbleuse          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,6 @@ PRINTF_SRC_NAME = ft_printf.c	\
 		ft_printf_n.c			\
 		ft_printf_momu.c		\
 		ft_printf_ouxmx.c		\
-		ft_printf_error.c		\
 		ft_printf_modulo.c		\
 
 LIBFT_SRC_NAME = ft_atoi.c		\

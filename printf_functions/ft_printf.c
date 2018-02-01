@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/01 12:18:03 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/01 15:30:23 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static void	ft_printf_function_array(int(*((*f)[]))(va_list, int*))
 	(*f)[14] = &ft_printf_mg;
 	(*f)[15] = &ft_printf_a;
 	(*f)[16] = &ft_printf_ma;
-	(*f)[17] = &ft_printf_error;
 }
 
 /*
@@ -54,7 +53,7 @@ static void	ft_printf_function_array(int(*((*f)[]))(va_list, int*))
 static int	ft_printf_next(char *str, va_list ap, int *count)
 {
 	int			*info;
-	int			(*ft_printf_tab[19])(va_list, int*);
+	int			(*ft_printf_tab[17])(va_list, int*);
 
 	if (!(info = (int*)malloc(sizeof(int) * 10)))
 		return (0);
@@ -64,7 +63,8 @@ static int	ft_printf_next(char *str, va_list ap, int *count)
 		return (*count += ft_printf_modulo(&info));
 	if (info[9] == 'n')
 		return (ft_printf_n(ap, *count));
-	*count += (ft_printf_tab[info[8]])(ap, info);
+	if (info[9] != '\0')
+		*count += (ft_printf_tab[info[8]])(ap, info);
 	ft_memdel((void**)&info);
 	return (1);
 }
@@ -84,8 +84,7 @@ int 		ft_printf(const char *format, ...)
 	{
 		if (str[i] == '%')
 		{
-			if (!ft_printf_next(&str[i], ap, &count))
-				return (ft_printf_error(ap, &count));
+			ft_printf_next(&str[i], ap, &count);
 			i = i + ft_last_char_index(&str[i]) + 1;
 		}
 		else

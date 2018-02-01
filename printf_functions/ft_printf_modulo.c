@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:26:58 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/01 13:09:01 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/01 14:58:09 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	ft_printf_modulo(int **info)
 	if ((*info)[2] != -1)
 		count += ft_printnchar((*info)[5] - 1, ' ');
 	ft_memdel((void**)info);
-	return (1);
+	return (count);
 }

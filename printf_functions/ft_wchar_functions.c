@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 15:40:16 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/01 13:04:57 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/01 13:45:30 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static int	ft_conv_to_utf8(int wbytes, wchar_t wchar, char *s)
 
 int			ft_wctomb(char *s, wchar_t wchar)
 {
-	if ((wchar < 0)||(wchar >= 0xD800 && wchar <= 0xDFFF)||(wchar > 0x10FFFF))
+	if ((wchar < 0) || (wchar >= 0xD800 && wchar <= 0xDFFF) ||
+			(wchar > 0x10FFFF))
 		return (-1);
 	if ((wchar >> 7) == 0)
 	{
@@ -63,7 +64,7 @@ int			ft_wctomb(char *s, wchar_t wchar)
 	return (-1);
 }
 
-size_t			ft_wcstombs(char *s, wchar_t *pwcs, size_t n)
+size_t		ft_wcstombs(char *s, wchar_t *pwcs, size_t n)
 {
 	char	tmp[sizeof(wchat_t)];
 	size_t	offset;
