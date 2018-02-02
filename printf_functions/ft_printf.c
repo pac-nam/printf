@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/01 15:30:23 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/02 12:46:37 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ static void	ft_printf_function_array(int(*((*f)[]))(va_list, int*))
 }
 
 /*
-**0|1|2|3|4|   5  |    6    |  7 |  8 |
-**#|0|-|+| |length|precision|size|type|
+**0|1|2|3|4|   5  |    6    |  7 |  8 |  9 |
+**#|0|-|+| |length|precision|size|type|char|
 */
 
 static int	ft_printf_next(char *str, va_list ap, int *count)

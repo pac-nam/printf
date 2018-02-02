@@ -6,11 +6,20 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:25:14 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/02 17:59:07 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/02 14:45:49 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
+
+static int	ft_printf_di_zero(char **str, int *info)
+{
+	int		count;
+
+	count = ft_printnchar(info[5], ' ');
+	ft_strdel(str);
+	return (count);
+}
 
 static int	ft_printf_di_rest(char *str, int *info)
 {
@@ -106,10 +115,7 @@ int			ft_printf_di(va_list ap, int *info)
 	if (!str)
 		return (0);
 	if (str[0] == '0' && info[6] == 0)
-	{
-		ft_strdel(&str);
-		return (ft_printnchar(info[5], ' '));
-	}
+		return (ft_printf_di_zero(&str, info));
 	if (str[0] == '-')
 		if (!(ft_modif_minus(&str, &info, 1)))
 			return (0);
