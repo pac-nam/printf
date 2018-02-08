@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 15:40:16 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/01 13:45:30 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/08 12:49:59 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ int			ft_wctomb(char *s, wchar_t wchar)
 	return (-1);
 }
 
-size_t		ft_wcstombs(char *s, wchar_t *pwcs, size_t n)
+int			ft_wcstombs(char *s, wchar_t *pwcs, int n)
 {
-	char	tmp[sizeof(wchat_t)];
-	size_t	offset;
+	char	tmp[sizeof(wchar_t)];
+	int		offset;
 	int		i;
 
 	offset = 0;
@@ -75,7 +75,7 @@ size_t		ft_wcstombs(char *s, wchar_t *pwcs, size_t n)
 	{
 		if ((i = ft_wctomb(tmp, *pwcs)) == -1)
 			return (-1);
-		if ((size_t)i > n)
+		if (i > n)
 			break ;
 		ft_memcpy(s + offset, tmp, i);
 		offset += i;
