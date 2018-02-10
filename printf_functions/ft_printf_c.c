@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:24:41 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/10 17:47:12 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/10 17:48:46 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int			ft_printf_c(va_list ap, int *info)
 	c = (char)va_arg(ap, int);
 	if (info[2] == -1)
 		count += ft_printnchar(info[5] - 1, ' ');
-	write(1, &c, 1);
-	write(1, &c, 1);
 	write(1, &c, 1);
 	if (info[2] != -1)
 		count += ft_printnchar(info[5] - 1, ' ');
