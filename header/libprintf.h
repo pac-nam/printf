@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 14:32:23 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/08 15:44:04 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/14 12:22:39 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ char		ft_last_char(char *str);
 char		*ft_lltoa(long long n);
 char		*ft_ulltoa_base(unsigned long long n, int base);
 void		ft_take_infos(char *format, int **infos);
-int			ft_wctomb(char *s, wchar_t wchar);
-int			ft_wcstombs(char *s, wchar_t *pwcs, int n);
-size_t		ft_wc_strlen(wchar_t *str);
+int			ft_wc_convert(char *s, wchar_t wchar);
+int			ft_wcs_convert(char *s, wchar_t *pwcs, int n);
+size_t		ft_wcslen(wchar_t *str);
 
 #endif

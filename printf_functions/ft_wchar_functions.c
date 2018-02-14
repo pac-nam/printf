@@ -6,13 +6,13 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 15:40:16 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/10 16:47:41 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/14 12:55:46 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 
-size_t		ft_wc_strlen(wchar_t *str)
+size_t		ft_wcslen(wchar_t *str)
 {
 	size_t		i;
 
@@ -22,7 +22,7 @@ size_t		ft_wc_strlen(wchar_t *str)
 	return (i);
 }
 
-static int	ft_conv_to_utf8(int wbytes, wchar_t wchar, char *s)
+static int	ft_conv_utf8(int wbytes, wchar_t wchar, char *s)
 {
 	if (wbytes == 2)
 	{
@@ -45,7 +45,7 @@ static int	ft_conv_to_utf8(int wbytes, wchar_t wchar, char *s)
 	return (wbytes);
 }
 
-int			ft_wctomb(char *s, wchar_t wchar)
+int			ft_wc_convert(char *s, wchar_t wchar)
 {
 	if ((wchar < 0) || (wchar >= 0xD800 && wchar <= 0xDFFF) ||
 			(wchar > 0x10FFFF))
@@ -56,15 +56,15 @@ int			ft_wctomb(char *s, wchar_t wchar)
 		return (1);
 	}
 	if ((wchar >> 11) == 0)
-		return (ft_conv_to_utf8(2, wchar, s));
+		return (ft_conv_utf8(2, wchar, s));
 	if ((wchar >> 16) == 0)
-		return (ft_conv_to_utf8(3, wchar, s));
+		return (ft_conv_utf8(3, wchar, s));
 	if ((wchar >> 21) == 0)
-		return (ft_conv_to_utf8(4, wchar, s));
+		return (ft_conv_utf8(4, wchar, s));
 	return (-1);
 }
 
-int			ft_wcstombs(char *s, wchar_t *pwcs, int n)
+int			ft_wcs_convert(char *s, wchar_t *pwcs, int n)
 {
 	char	tmp[sizeof(wchar_t)];
 	int		offset;
@@ -73,7 +73,7 @@ int			ft_wcstombs(char *s, wchar_t *pwcs, int n)
 	offset = 0;
 	while (*pwcs != L'\0' && n != 0)
 	{
-		if ((i = ft_wctomb(tmp, *pwcs)) == -1)
+		if ((i = ft_wc_convert(tmp, *pwcs)) == -1)
 			return (-1);
 		if (i > n)
 			break ;
