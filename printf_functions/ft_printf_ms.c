@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 16:48:06 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/14 12:55:44 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/14 17:11:50 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@ int				ft_printf_ms(va_list ap, int *info)
 {
 	wchar_t		*wcs;
 	char		*str;
+	int			len;
 	int			count;
 
 	wcs = va_arg(ap, wchar_t*);
+	len = ft_wcslen(wcs);
 	if (info[6] == -1)
-		info[6] = ft_wcslen(wcs);
-	str = NULL;
+		info[6] = len;
+	if (!(str = (char*)malloc(len + 1)))
+		return (0);
+	str[len] = '\0';
 	if (!ft_wcs_convert(str, wcs, info[6]))
 		return (0);
 	if (info[2] == -1)
