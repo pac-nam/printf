@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 14:32:23 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/14 12:22:39 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/15 14:28:09 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void		ft_take_infos(char *format, int **infos);
 int			ft_wc_convert(char *s, wchar_t wchar);
 int			ft_wcs_convert(char *s, wchar_t *pwcs, int n);
 size_t		ft_wcslen(wchar_t *str);
+size_t		ft_strlenwcs(wchar_t *str);
 
 #endif

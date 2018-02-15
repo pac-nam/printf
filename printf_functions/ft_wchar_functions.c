@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 15:40:16 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/14 17:33:47 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/15 18:20:24 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,30 @@ static int	ft_conv_utf8(int wbytes, wchar_t wchar, char *s)
 	return (wbytes);
 }
 
+size_t		ft_strlenwcs(wchar_t *wcs)
+{
+	int		len;
+	int		i;
+
+	len = 0;
+	i = 0;
+	if (!wcs)
+		return (0);
+	while (wcs[i] != L'\0')
+	{
+		if ((wcs[i] >> 7) == 0)
+			len += 1;
+		else if ((wcs[i] >> 11) == 0)
+			len += 2;
+		else if ((wcs[i] >> 16) == 0)
+			len += 3;
+		else if ((wcs[i] >> 21) == 0)
+			len += 4;
+		i++;
+	}
+	return (len);
+}
+
 int			ft_wc_convert(char *s, wchar_t wchar)
 {
 	if ((wchar < 0) || (wchar >= 0xD800 && wchar <= 0xDFFF) ||
@@ -71,6 +95,8 @@ int			ft_wcs_convert(char *s, wchar_t *pwcs, int n)
 	int		i;
 
 	offset = 0;
+	if (!pwcs)
+		return (0);
 	while (*pwcs != L'\0' && n != 0)
 	{
 		if ((i = ft_wc_convert(tmp, *pwcs)) == -1)

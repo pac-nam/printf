@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 13:37:11 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/08 14:38:04 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/15 17:39:05 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ static int		ft_printf_type(char c)
 
 	if (c == 'i')
 		return (1);
-	if (c == 'u' || c == 'x' || c == 'X')
+	if (c == 'u' || c == 'x' || c == 'X' || c == 'b')
 		return (2);
 	if (c == 'U')
 		return (6);
-	str = "sdoSDpOcCeEfFgGaA";
+	str = "sdoSDpOcCb";
 	i = 0;
 	while (str[i] && str[i] != c)
 		i++;

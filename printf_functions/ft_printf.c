@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/14 16:06:54 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/15 17:36:06 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,13 @@ static void	ft_printf_function_array(int(*((*f)[]))(va_list, int*))
 {
 	(*f)[0] = &ft_printf_s;
 	(*f)[1] = &ft_printf_di;
-	(*f)[2] = &ft_printf_ouxmx;
+	(*f)[2] = &ft_printf_bouxmx;
 	(*f)[3] = &ft_printf_ms;
 	(*f)[4] = &ft_printf_md;
 	(*f)[5] = &ft_printf_p;
 	(*f)[6] = &ft_printf_momu;
 	(*f)[7] = &ft_printf_c;
 	(*f)[8] = &ft_printf_mc;
-	(*f)[9] = &ft_printf_e;
-	(*f)[10] = &ft_printf_me;
-	(*f)[11] = &ft_printf_f;
-	(*f)[12] = &ft_printf_mf;
-	(*f)[13] = &ft_printf_g;
-	(*f)[14] = &ft_printf_mg;
-	(*f)[15] = &ft_printf_a;
-	(*f)[16] = &ft_printf_ma;
 }
 
 /*
@@ -53,7 +45,7 @@ static void	ft_printf_function_array(int(*((*f)[]))(va_list, int*))
 static int	ft_printf_next(char *str, va_list ap, int *count)
 {
 	int			*info;
-	int			(*ft_printf_tab[17])(va_list, int*);
+	int			(*ft_printf_tab[9])(va_list, int*);
 
 	if (!(info = (int*)malloc(sizeof(int) * 10)))
 		return (0);

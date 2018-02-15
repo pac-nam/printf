@@ -6,14 +6,15 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 14:52:07 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/20 11:52:54 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/15 17:37:45 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 #include "../header/function_array.h"
+#include "../header/bonus_printf.h"
 
-static int		ft_printf_ouxmx_second(unsigned long long nb, int *info)
+static int		ft_printf_bouxmx_second(unsigned long long nb, int *info)
 {
 	if (info[9] == (int)'o')
 		return (ft_printf_o(nb, info));
@@ -23,10 +24,12 @@ static int		ft_printf_ouxmx_second(unsigned long long nb, int *info)
 		return (ft_printf_x(nb, info));
 	if (info[9] == (int)'X')
 		return (ft_printf_mx(nb, info));
+	if (info[9] == (int)'b')
+		return (ft_printf_b(nb, info));
 	return (0);
 }
 
-int				ft_printf_ouxmx(va_list ap, int *info)
+int				ft_printf_bouxmx(va_list ap, int *info)
 {
 	unsigned long long	nb;
 
@@ -44,5 +47,5 @@ int				ft_printf_ouxmx(va_list ap, int *info)
 		nb = (unsigned long long)(uintmax_t)va_arg(ap, long long);
 	if (info[7] == 6)
 		nb = (unsigned long long)va_arg(ap, unsigned long long);
-	return (ft_printf_ouxmx_second(nb, info));
+	return (ft_printf_bouxmx_second(nb, info));
 }

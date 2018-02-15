@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 15:37:18 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/01 15:22:12 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/15 17:28:45 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "libprintf.h"
 
 int		ft_printf_di(va_list ap, int *infos);
-int		ft_printf_ouxmx(va_list ap, int *infos);
+int		ft_printf_bouxmx(va_list ap, int *infos);
 int		ft_printf_momu(va_list ap, int *infos);
 
 int		ft_printf_s(va_list ap, int *infos);

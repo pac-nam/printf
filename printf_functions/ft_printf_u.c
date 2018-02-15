@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:28:56 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/01/18 16:52:07 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/15 18:39:44 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ int				ft_printf_u(unsigned long long nb, int *info)
 
 	count = 0;
 	str = ft_ulltoa_base(nb, 10);
+	if (*str == '0' && info[6] == 0)
+	{
+		count += ft_printnchar(info[5], ' ');
+		ft_strdel(&str);
+		return (count);
+	}
 	if (!ft_addncharbefore(info[6] - (int)ft_strlen(str), '0', &str))
 		return (0);
 	if (info[2] == -1)

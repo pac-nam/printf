@@ -6,7 +6,7 @@
 #    By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 10:34:52 by tbleuse           #+#    #+#              #
-#    Updated: 2018/02/08 14:37:27 by tbleuse          ###   ########.fr        #
+#    Updated: 2018/02/15 17:38:21 by tbleuse          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,17 +35,10 @@ PRINTF_SRC_NAME = ft_printf.c	\
 		ft_printf_mx.c			\
 		ft_printf_c.c			\
 		ft_printf_mc.c			\
-		ft_printf_e.c			\
-		ft_printf_me.c			\
-		ft_printf_f.c			\
-		ft_printf_mf.c			\
-		ft_printf_g.c			\
-		ft_printf_mg.c			\
-		ft_printf_a.c			\
-		ft_printf_ma.c			\
 		ft_printf_n.c			\
+		ft_printf_b.c			\
 		ft_printf_momu.c		\
-		ft_printf_ouxmx.c		\
+		ft_printf_bouxmx.c		\
 		ft_printf_modulo.c		\
 		ft_wchar_functions.c	\
 
