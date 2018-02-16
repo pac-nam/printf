@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 13:37:11 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/15 17:39:05 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/16 16:20:23 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,10 @@ void			ft_take_infos(char *format, int **info)
 	ft_printf_infos_z_len_pre(info, format, max);
 	(*info)[7] = ft_printf_size(format, max);
 	(*info)[8] = ft_printf_type(format[max]);
-	if ((*info)[2] != -1 || (*info)[6] != -1)
+	(*info)[9] = (int)format[max];
+	if (((*info)[2] != -1 || (*info)[6] != -1)
+			&& !ft_strchr("cCsS%", (*info)[9]))
 		(*info)[1] = -1;
 	if ((*info)[3] != -1)
 		(*info)[4] = -1;
-	(*info)[9] = (int)format[max];
 }

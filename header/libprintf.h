@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 14:32:23 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/15 14:28:09 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/16 15:58:43 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 int			ft_printf(const char *str, ...);
 int			ft_last_char_index(char *str);
+int			ft_printf_pass_str(char *str);
 int			ft_printnchar(int nb, char c);
 int			ft_addncharbefore(int n, char c, char **str);
 char		ft_last_char(char *str);

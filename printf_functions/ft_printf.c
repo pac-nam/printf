@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/15 17:36:06 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/16 16:19:49 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ static int	ft_printf_next(char *str, va_list ap, int *count)
 		return (0);
 	ft_printf_function_array(&ft_printf_tab);
 	ft_take_infos(str, &info);
-	if (info[9] == '%')
+	if (info[9] == '%' && ft_last_char_index(str) != 0)
 		return (*count += ft_printf_modulo(&info));
-	if (info[9] == 'n')
+	else if (info[9] == 'n')
 		return (ft_printf_n(ap, *count));
-	if (info[9] != '\0')
+	else if (info[9] != '%' )
 		*count += (ft_printf_tab[info[8]])(ap, info);
 	ft_memdel((void**)&info);
 	return (1);
@@ -77,7 +77,7 @@ int 		ft_printf(const char *format, ...)
 		if (str[i] == '%')
 		{
 			ft_printf_next(&str[i], ap, &count);
-			i = i + ft_last_char_index(&str[i]) + 1;
+			i = i + ft_printf_pass_str(&str[i]);
 		}
 		else
 			count += ft_print_str(str, &i);

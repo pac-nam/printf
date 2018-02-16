@@ -6,11 +6,12 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 10:04:25 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/08 15:44:28 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/16 12:33:13 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
+#include <limits.h>
 
 static int	ft_nb_lenght(long long nb)
 {
@@ -33,8 +34,8 @@ char		*ft_lltoa(long long n)
 	int		i;
 
 	i = ft_nb_lenght(n);
-	if (n == -9223372036854775807)
-		return (ft_strdup("-9223372036854775807"));
+	if (n == LLONG_MIN)
+		return (ft_strdup("-9223372036854775808"));
 	if (!(str = (char*)malloc(sizeof(*str) * (i + 1))))
 		return (NULL);
 	if (n == 0)

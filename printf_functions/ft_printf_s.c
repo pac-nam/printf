@@ -6,12 +6,20 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 16:48:06 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/15 18:13:04 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/16 16:32:52 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 #include "../header/function_array.h"
+
+static int	ft_printf_s_rest(int *info)
+{
+	if (info[1] == -1)
+		return (ft_printnchar(info[5] - info[6], ' '));
+	else
+		return (ft_printnchar(info[5] - info[6], '0'));
+}
 
 int			ft_printf_s(va_list ap, int *info)
 {
@@ -19,7 +27,7 @@ int			ft_printf_s(va_list ap, int *info)
 	int			len;
 	int			count;
 
-	if (info[7] == 3)
+	if (info[7] == 4)
 		return (ft_printf_ms(ap, info));
 	str = va_arg(ap, char*);
 	if (!str)
@@ -29,12 +37,12 @@ int			ft_printf_s(va_list ap, int *info)
 	if (info[6] == -1 || info[6] > len)
 		info[6] = len;
 	if (info[2] == -1)
-		count = ft_printnchar(info[5] - info[6], ' ');
-	if (!str)
+		count = ft_printf_s_rest(info);
+	if (!str && info[1] == -1)
 		write(1, "(null)", 6);
 	else
 		write(1, str, info[6]);
 	if (info[2] != -1)
-		count = ft_printnchar(info[5] - info[6], ' ');
+		count = ft_printf_s_rest(info);
 	return (info[6] + count);
 }

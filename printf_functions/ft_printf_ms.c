@@ -6,11 +6,19 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 16:48:06 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/15 18:20:14 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/16 16:33:32 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
+
+static int		ft_printf_ms_rest(int *info)
+{
+	if (info[1] == -1)
+		return (ft_printnchar(info[5] - info[6], ' '));
+	else
+		return (ft_printnchar(info[5] - info[6], '0'));
+}
 
 int				ft_printf_ms(va_list ap, int *info)
 {
@@ -19,6 +27,7 @@ int				ft_printf_ms(va_list ap, int *info)
 	int			len;
 	int			count;
 
+	count = 0;
 	wcs = va_arg(ap, wchar_t*);
 	len = ft_strlenwcs(wcs);
 	if (info[6] == -1)
@@ -28,14 +37,14 @@ int				ft_printf_ms(va_list ap, int *info)
 	if ((len = ft_wcs_convert(str, wcs, info[6])) == -1)
 		return (0);
 	if (info[2] == -1)
-		count = ft_printnchar(info[5] - info[6], ' ');
+		count += ft_printf_ms_rest(info);
 	str[len] = '\0';
-	if (len == 0)
+	if (wcs == NULL)
 		count += write(1, "(null)", 6);
 	else
 		write(1, str, ft_strlen(str));
 	if (info[2] != -1)
-		count = ft_printnchar(info[5] - info[6], ' ');
+		count += ft_printf_ms_rest(info);
 	ft_strdel(&str);
 	return (info[6] + count);
 }
