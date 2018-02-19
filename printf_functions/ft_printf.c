@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:56:12 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/16 16:19:49 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/19 14:17:30 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,6 @@ static int	ft_print_str(const char *format, int *index)
 	return (i);
 }
 
-static void	ft_printf_function_array(int(*((*f)[]))(va_list, int*))
-{
-	(*f)[0] = &ft_printf_s;
-	(*f)[1] = &ft_printf_di;
-	(*f)[2] = &ft_printf_bouxmx;
-	(*f)[3] = &ft_printf_ms;
-	(*f)[4] = &ft_printf_md;
-	(*f)[5] = &ft_printf_p;
-	(*f)[6] = &ft_printf_momu;
-	(*f)[7] = &ft_printf_c;
-	(*f)[8] = &ft_printf_mc;
-}
-
-/*
-**0|1|2|3|4|   5  |    6    |  7 |  8 |  9 |
-**#|0|-|+| |length|precision|size|type|char|
-*/
-
 static int	ft_printf_next(char *str, va_list ap, int *count)
 {
 	int			*info;
@@ -49,19 +31,27 @@ static int	ft_printf_next(char *str, va_list ap, int *count)
 
 	if (!(info = (int*)malloc(sizeof(int) * 10)))
 		return (0);
-	ft_printf_function_array(&ft_printf_tab);
+	ft_printf_tab[0] = &ft_printf_s;
+	ft_printf_tab[1] = &ft_printf_di;
+	ft_printf_tab[2] = &ft_printf_bouxmx;
+	ft_printf_tab[3] = &ft_printf_ms;
+	ft_printf_tab[4] = &ft_printf_md;
+	ft_printf_tab[5] = &ft_printf_p;
+	ft_printf_tab[6] = &ft_printf_momu;
+	ft_printf_tab[7] = &ft_printf_c;
+	ft_printf_tab[8] = &ft_printf_mc;
 	ft_take_infos(str, &info);
 	if (info[9] == '%' && ft_last_char_index(str) != 0)
 		return (*count += ft_printf_modulo(&info));
 	else if (info[9] == 'n')
 		return (ft_printf_n(ap, *count));
-	else if (info[9] != '%' )
+	else if (info[9] != '%')
 		*count += (ft_printf_tab[info[8]])(ap, info);
 	ft_memdel((void**)&info);
 	return (1);
 }
 
-int 		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	int			i;
 	int			count;
