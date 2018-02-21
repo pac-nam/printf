@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 16:48:06 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/16 16:32:52 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/19 13:47:05 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int			ft_printf_s(va_list ap, int *info)
 	if (info[2] == -1)
 		count = ft_printf_s_rest(info);
 	if (!str && info[1] == -1)
-		write(1, "(null)", 6);
+		write(1, "(null)", info[6]);
 	else
 		write(1, str, info[6]);
 	if (info[2] != -1)

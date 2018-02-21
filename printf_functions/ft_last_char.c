@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 16:38:27 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/16 16:29:38 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/19 11:51:23 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int			ft_last_char_index(char *str)
 			str[i] == 'D' || str[i] == 'i' || str[i] == 'o' || str[i] == 'O' ||
 			str[i] == 'u' || str[i] == 'U' || str[i] == 'x' || str[i] == 'X' ||
 			str[i] == 'c' || str[i] == 'C' || str[i] == 'b' || str[i] == 'n' ||
-			str[i] == '%' || str[i] == '\0')
+			str[i] == '%')
 		return (i);
 	return (0);
 }
@@ -57,7 +57,7 @@ int			ft_printf_pass_str(char *str)
 			str[i] == 'D' || str[i] == 'i' || str[i] == 'o' || str[i] == 'O' ||
 			str[i] == 'u' || str[i] == 'U' || str[i] == 'x' || str[i] == 'X' ||
 			str[i] == 'c' || str[i] == 'C' || str[i] == 'b' || str[i] == 'n' ||
-			str[i] == '%' || str[i] == '\0')
+			str[i] == '%')
 		++i;
 	return (i);
 }

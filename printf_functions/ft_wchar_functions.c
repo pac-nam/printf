@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 15:40:16 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/16 12:50:44 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/19 12:06:11 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ size_t		ft_strlenwcs(wchar_t *wcs)
 	len = 0;
 	i = 0;
 	if (!wcs)
-		return (0);
+		return (6);
 	while (wcs[i] != L'\0')
 	{
 		if ((wcs[i] >> 7) == 0)

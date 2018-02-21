@@ -6,13 +6,15 @@
 #    By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 10:34:52 by tbleuse           #+#    #+#              #
-#    Updated: 2018/02/19 14:50:28 by tbleuse          ###   ########.fr        #
+#    Updated: 2018/02/21 11:43:44 by tbleuse          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
 NAME = libftprintf
+
+TEST_NAME = test_printf
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -120,18 +122,26 @@ all : $(NAME) $(NAME).a
 $(NAME) : $(OBJ)
 
 %.a :
-	ar rc $(NAME).a $(OBJ)
-	ranlib $(NAME).a
+	@ar rc $(NAME).a $(OBJ)
+	@ranlib $(NAME).a
+	@echo "$(NAME) have been compiled"
 
 %.o : %.c
-	$(CC) -c $(FLAGS) $< -o $@
+	@$(CC) -c $(FLAGS) $< -o $@
 
 clean :
-	/bin/rm -f $(OBJ)
+	@/bin/rm -f $(OBJ)
+	@echo "objects have been deleted"
 
 fclean : clean
-	/bin/rm -f $(NAME).a
+	@/bin/rm -f $(NAME).a
+	@echo "$(NAME) have been deleted"
 
 re : fclean all
+
+test : all
+	@$(CC) $(FLAGS) -o $(TEST_NAME) test_zone/main_printf.c $(NAME).a
+	@./$(TEST_NAME)
+	@rm -f $(TEST_NAME)
 
 .PHONY : all clean fclean re

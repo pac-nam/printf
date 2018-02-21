@@ -6,17 +6,27 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:25:14 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/15 18:58:27 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/19 11:15:33 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libprintf.h"
 
-static int		ft_printf_di_zero(char **str, int info)
+static int		ft_printf_di_zero(char **str, int *info)
 {
 	int		count;
 
-	count = ft_printnchar(info, ' ');
+	if (info[3] == 1 || info[4] == 1)
+		info[5] -= 1;
+	count = 0;
+	if (info[2] == -1)
+		count += ft_printnchar(info[5], ' ');
+	if (info[3] == 1)
+		count += write(1, "+", 1);
+	else if (info[4] == 1)
+		count += write(1, " ", 1);
+	if (info[2] != -1)
+		count += ft_printnchar(info[5], ' ');
 	ft_strdel(str);
 	return (count);
 }
@@ -95,7 +105,7 @@ int				ft_printf_di(va_list ap, int *info)
 	if (info[7] == 6)
 		str = ft_lltoa((long long)va_arg(ap, unsigned long long));
 	if (str[0] == '0' && info[6] == 0)
-		return (ft_printf_di_zero(&str, info[5]));
+		return (ft_printf_di_zero(&str, info));
 	if (!str || !(ft_modif_nb(&str, &info)))
 		return (0);
 	return (ft_printf_di_second(&str, info));

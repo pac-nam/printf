@@ -6,7 +6,7 @@
 /*   By: tbleuse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 10:24:41 by tbleuse           #+#    #+#             */
-/*   Updated: 2018/02/16 16:34:16 by tbleuse          ###   ########.fr       */
+/*   Updated: 2018/02/19 12:20:57 by tbleuse          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int			ft_printf_mc(va_list ap, int *info)
 	char		*str;
 
 	count = 0;
-	if (info[7] == 1)
-		return (ft_printf_c(ap, info));
 	c = va_arg(ap, wchar_t);
 	len = ft_strlenwcs(&c);
 	if (!(str = (char*)malloc(len + 1)))
